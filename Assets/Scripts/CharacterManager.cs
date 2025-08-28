@@ -4,11 +4,16 @@ using UnityEngine;
 
 namespace SG
 {
-	public class CharacterManager : MonoBehaviour
-	{
-		private void Awake()
-		{
-			DontDestroyOnLoad(this);
-		}
-	}
+    public class CharacterManager : MonoBehaviour
+    {
+        protected virtual void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
+
+        protected virtual void Update()
+        {
+
+        }
+    }
 }
