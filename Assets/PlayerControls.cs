@@ -149,6 +149,78 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Player Camera"",
+            ""id"": ""7531af23-3977-48af-9bbd-36a6dd9cb536"",
+            ""actions"": [
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""760937c3-d15d-49a4-bd08-255cc7f2147f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Right Stick"",
+                    ""id"": ""abd12573-f9b6-4096-a7a2-6f4b35c1cf5b"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""46bc8487-bcdb-4e24-a4bd-8c98ed0c6122"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""42b07afb-4219-4785-9eab-1b0d064c3d86"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""19fc75ee-6526-4998-9b2f-64afc7a9e6ff"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c5649a22-2247-4436-b7e1-ed746ad81ae8"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -156,6 +228,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         // Player Movement
         m_PlayerMovement = asset.FindActionMap("Player Movement", throwIfNotFound: true);
         m_PlayerMovement_Movement = m_PlayerMovement.FindAction("Movement", throwIfNotFound: true);
+        // Player Camera
+        m_PlayerCamera = asset.FindActionMap("Player Camera", throwIfNotFound: true);
+        m_PlayerCamera_Movement = m_PlayerCamera.FindAction("Movement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -244,7 +319,44 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         }
     }
     public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
+
+    // Player Camera
+    private readonly InputActionMap m_PlayerCamera;
+    private IPlayerCameraActions m_PlayerCameraActionsCallbackInterface;
+    private readonly InputAction m_PlayerCamera_Movement;
+    public struct PlayerCameraActions
+    {
+        private @PlayerControls m_Wrapper;
+        public PlayerCameraActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_PlayerCamera_Movement;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerCamera; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerCameraActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerCameraActions instance)
+        {
+            if (m_Wrapper.m_PlayerCameraActionsCallbackInterface != null)
+            {
+                @Movement.started -= m_Wrapper.m_PlayerCameraActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_PlayerCameraActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_PlayerCameraActionsCallbackInterface.OnMovement;
+            }
+            m_Wrapper.m_PlayerCameraActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
+            }
+        }
+    }
+    public PlayerCameraActions @PlayerCamera => new PlayerCameraActions(this);
     public interface IPlayerMovementActions
+    {
+        void OnMovement(InputAction.CallbackContext context);
+    }
+    public interface IPlayerCameraActions
     {
         void OnMovement(InputAction.CallbackContext context);
     }
