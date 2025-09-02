@@ -218,8 +218,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6309056720138933611}
   - {fileID: 1432665276904406275}
+  - {fileID: 6309056720138933611}
   m_Father: {fileID: 1962343215209200456}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -287,7 +287,7 @@ RectTransform:
   - {fileID: 7869783878291025096}
   - {fileID: 950067597019737426}
   m_Father: {fileID: 2479585038749043522}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -357,8 +357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2946b1cfb9d4ac8469c1f7251a7b9c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleBarLengthWithStats: 1
-  widthScaleMultiplier: 30
+  scaleBarLengthWithStats: 0
+  widthScaleMultiplier: 1
 --- !u!1 &4923436079932865610
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ RectTransform:
   - {fileID: 6285337060733579132}
   - {fileID: 5071883193439280844}
   m_Father: {fileID: 2479585038749043522}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleBarLengthWithStats: 1
-  widthScaleMultiplier: 10
+  widthScaleMultiplier: 1
 --- !u!1 &5293259843501165279
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +600,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_TargetDisplay: 0
 --- !u!114 &5523762107580215897
 MonoBehaviour:
