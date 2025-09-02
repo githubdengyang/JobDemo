@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -3979402214332056854}
   - component: {fileID: -1020371971374325845}
   - component: {fileID: -29780715816184921}
+  - component: {fileID: 2683310896011738507}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -391,6 +392,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staminaRegenerationAmount: 2
   staminaRegenerationDelay: 2
+--- !u!114 &2683310896011738507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3821975423867849656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa8581f3370c044e99b4a8c9a8aeb42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectToTest: {fileID: 11400000, guid: 5af147f44d9ea334c9f24ddabddb6109, type: 2}
+  processEffect: 1
 --- !u!1001 &7061465049798794076
 PrefabInstance:
   m_ObjectHideFlags: 0
