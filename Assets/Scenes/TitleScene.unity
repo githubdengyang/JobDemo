@@ -457,6 +457,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1432665276904406275, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432665276904406275, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432665276904406275, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432665276904406275, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2492246477832276183, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -560,6 +576,22 @@ PrefabInstance:
     - target: {fileID: 5523762107580215902, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
       propertyPath: m_Name
       value: PlayerUIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309056720138933611, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309056720138933611, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309056720138933611, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309056720138933611, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
@@ -729,8 +761,16 @@ PrefabInstance:
       value: TitleSceneCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 3719128734307089160, guid: 60b75d164327e1b4f9952398bb0329cc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 3719128734307089160, guid: 60b75d164327e1b4f9952398bb0329cc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678206443944764860, guid: 60b75d164327e1b4f9952398bb0329cc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4.6418457
       objectReference: {fileID: 0}
     - target: {fileID: 6678206443944764860, guid: 60b75d164327e1b4f9952398bb0329cc, type: 3}
       propertyPath: m_AnchoredPosition.y
