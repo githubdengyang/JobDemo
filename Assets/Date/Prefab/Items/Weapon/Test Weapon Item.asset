@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: 
   itemIcon: {fileID: 0}
   itemDescription: 
-  itemID: 1
+  itemID: 2
   weaponModel: {fileID: 4718178142049903673, guid: 0ccd2b0af1c163d4591fc4aee2fe6f0b, type: 3}
   strengthREQ: 10
   dexREQ: 10
@@ -28,3 +28,4 @@ MonoBehaviour:
   lightningDamage: 0
   poiseDamage: 10
   baseStaminaCost: 10
+  oh_RB_Action: {fileID: 11400000, guid: 3e602e9e24d49734f8991a29b775cc8d, type: 2}

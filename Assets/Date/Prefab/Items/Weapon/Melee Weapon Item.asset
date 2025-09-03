@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e42f801760828e6499de98cf177a0373, type: 3}
-  m_Name: Test1 Weapon Item
+  m_Name: Melee Weapon Item
   m_EditorClassIdentifier: 
   itemName: 
   itemIcon: {fileID: 0}
@@ -28,3 +28,4 @@ MonoBehaviour:
   lightningDamage: 0
   poiseDamage: 10
   baseStaminaCost: 10
+  oh_RB_Action: {fileID: 11400000, guid: 3e602e9e24d49734f8991a29b775cc8d, type: 2}
