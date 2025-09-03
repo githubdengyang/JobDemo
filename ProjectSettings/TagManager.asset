@@ -11,9 +11,9 @@ TagManager:
   - Wall
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Character
+  - Damage Collider
+  - Damaged Character
   - 
   - 
   - 
