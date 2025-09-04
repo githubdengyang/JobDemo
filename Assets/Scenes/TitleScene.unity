@@ -201,6 +201,53 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &474531494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 474531496}
+  - component: {fileID: 474531495}
+  m_Layer: 0
+  m_Name: WorldActionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &474531495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474531494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918139dc21d5a5c4fa21cce2e66e8708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponItemActions:
+  - {fileID: 11400000, guid: 3e602e9e24d49734f8991a29b775cc8d, type: 2}
+  - {fileID: 11400000, guid: b9321a25f277ed545a00120312d1dda1, type: 2}
+--- !u!4 &474531496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474531494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &590956895
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9205371721066302475, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.244995
+      value: -12.245117
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
@@ -770,7 +817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3719128734307089160, guid: 60b75d164327e1b4f9952398bb0329cc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00012207031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3719128734307089160, guid: 60b75d164327e1b4f9952398bb0329cc, type: 3}
       propertyPath: m_AnchoredPosition.y
