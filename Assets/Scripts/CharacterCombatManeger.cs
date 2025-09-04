@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
 namespace SG
 {
-    public class CharacterCombatManeger : MonoBehaviour
+    public class CharacterCombatManeger : NetworkBehaviour
     {
+        CharacterManager character;
+
         [Header("Attack Target")]
         public CharacterManager currentTarget;
 
@@ -17,7 +20,23 @@ namespace SG
 
         protected virtual void Awake()
         {
+            character = GetComponent<CharacterManager>();
+        }
 
+        public virtual void SetTarget(CharacterManager newTarget)
+        {
+            if (character.IsOwner)
+            {
+                if (newTarget != null)
+                {
+                    currentTarget = newTarget;
+                    character.characterNetworkManager.currentTargetNetworkObjectID.Value = newTarget.GetComponent<NetworkObject>().NetworkObjectId;
+                }
+                else
+                {
+                    currentTarget = null;
+                }
+            }
         }
     }
 }
