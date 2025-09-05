@@ -281,6 +281,24 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SeekLeftLockOnTarget"",
+                    ""type"": ""Button"",
+                    ""id"": ""9e5b4e59-db07-41a0-96a8-bacaa346f38f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SeekRightLockOnTarget"",
+                    ""type"": ""Button"",
+                    ""id"": ""74526c01-6c40-4486-8ac3-f2cdfbdb1123"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -336,6 +354,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""LockOn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02148719-1c02-4aae-9e4c-d85f67aa6d05"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SeekLeftLockOnTarget"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0068bcb-7628-4515-a50d-d59968956f23"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SeekRightLockOnTarget"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -396,6 +436,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActions_RB = m_PlayerActions.FindAction("RB", throwIfNotFound: true);
         m_PlayerActions_LockOn = m_PlayerActions.FindAction("LockOn", throwIfNotFound: true);
+        m_PlayerActions_SeekLeftLockOnTarget = m_PlayerActions.FindAction("SeekLeftLockOnTarget", throwIfNotFound: true);
+        m_PlayerActions_SeekRightLockOnTarget = m_PlayerActions.FindAction("SeekRightLockOnTarget", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_X = m_UI.FindAction("X", throwIfNotFound: true);
@@ -529,6 +571,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_Jump;
     private readonly InputAction m_PlayerActions_RB;
     private readonly InputAction m_PlayerActions_LockOn;
+    private readonly InputAction m_PlayerActions_SeekLeftLockOnTarget;
+    private readonly InputAction m_PlayerActions_SeekRightLockOnTarget;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -538,6 +582,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerActions_Jump;
         public InputAction @RB => m_Wrapper.m_PlayerActions_RB;
         public InputAction @LockOn => m_Wrapper.m_PlayerActions_LockOn;
+        public InputAction @SeekLeftLockOnTarget => m_Wrapper.m_PlayerActions_SeekLeftLockOnTarget;
+        public InputAction @SeekRightLockOnTarget => m_Wrapper.m_PlayerActions_SeekRightLockOnTarget;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -562,6 +608,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @LockOn.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLockOn;
                 @LockOn.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLockOn;
                 @LockOn.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLockOn;
+                @SeekLeftLockOnTarget.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSeekLeftLockOnTarget;
+                @SeekLeftLockOnTarget.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSeekLeftLockOnTarget;
+                @SeekLeftLockOnTarget.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSeekLeftLockOnTarget;
+                @SeekRightLockOnTarget.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSeekRightLockOnTarget;
+                @SeekRightLockOnTarget.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSeekRightLockOnTarget;
+                @SeekRightLockOnTarget.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSeekRightLockOnTarget;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -581,6 +633,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @LockOn.started += instance.OnLockOn;
                 @LockOn.performed += instance.OnLockOn;
                 @LockOn.canceled += instance.OnLockOn;
+                @SeekLeftLockOnTarget.started += instance.OnSeekLeftLockOnTarget;
+                @SeekLeftLockOnTarget.performed += instance.OnSeekLeftLockOnTarget;
+                @SeekLeftLockOnTarget.canceled += instance.OnSeekLeftLockOnTarget;
+                @SeekRightLockOnTarget.started += instance.OnSeekRightLockOnTarget;
+                @SeekRightLockOnTarget.performed += instance.OnSeekRightLockOnTarget;
+                @SeekRightLockOnTarget.canceled += instance.OnSeekRightLockOnTarget;
             }
         }
     }
@@ -633,6 +691,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnRB(InputAction.CallbackContext context);
         void OnLockOn(InputAction.CallbackContext context);
+        void OnSeekLeftLockOnTarget(InputAction.CallbackContext context);
+        void OnSeekRightLockOnTarget(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
