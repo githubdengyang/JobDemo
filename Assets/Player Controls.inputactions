@@ -277,6 +277,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "RT",
+                    "type": "Button",
+                    "id": "8805e0e7-f3f1-4134-b2a0-4c6ab86f7625",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HoldRT",
+                    "type": "Button",
+                    "id": "fcefebd1-2efc-45fc-9d07-b90461617ca7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -316,7 +334,7 @@
                 {
                     "name": "",
                     "id": "f7489348-e9da-45c4-a054-13de7ef66882",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -354,6 +372,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "SeekRightLockOnTarget",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ed1a2fb5-883f-4fa5-91af-e3e3596f005c",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6f58d9df-fdc4-4057-9578-92ced7a995de",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldRT",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
