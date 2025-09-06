@@ -8,10 +8,6 @@ namespace SG
 {
     public class PlayerManager : CharacterManager
     {
-        [Header("DEBUG MENU")]
-        [SerializeField] bool respawnCharacter = false;
-        [SerializeField] bool switchRightWeapon = false;
-
         [HideInInspector] public PlayerAnimatorManager playerAnimatorManager;
         [HideInInspector] public PlayerLocomotionManager playerLocomotionManager;
         [HideInInspector] public PlayerNetworkManager playerNetworkManager;
@@ -48,8 +44,6 @@ namespace SG
 
             //  REGEN STAMINA
             playerStatsManager.RegenerateStamina();
-
-            DebugMenu();
         }
 
         protected override void LateUpdate()
@@ -234,22 +228,6 @@ namespace SG
             if (playerNetworkManager.isLockedOn.Value)
             {
                 playerNetworkManager.OnLockOnTargetIDChange(0, playerNetworkManager.currentTargetNetworkObjectID.Value);
-            }
-        }
-
-        //  DEBUG DELETE LATER
-        private void DebugMenu()
-        {
-            if (respawnCharacter)
-            {
-                respawnCharacter = false;
-                ReviveCharacter();
-            }
-
-            if (switchRightWeapon)
-            {
-                switchRightWeapon = false;
-                playerEquipmentManager.SwitchRightWeapon();
             }
         }
     }
