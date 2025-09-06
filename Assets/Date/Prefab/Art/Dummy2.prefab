@@ -599,7 +599,6 @@ GameObject:
   - component: {fileID: 1491404436256807517}
   - component: {fileID: 5078050726146350439}
   - component: {fileID: 85931660275170105}
-  - component: {fileID: -6825329350500993745}
   - component: {fileID: 5469195601891977946}
   - component: {fileID: -1453510930732979055}
   - component: {fileID: 1169482982999110240}
@@ -607,6 +606,7 @@ GameObject:
   - component: {fileID: 780782483350694956}
   - component: {fileID: 3637254468407497302}
   - component: {fileID: -9181332814246240668}
+  - component: {fileID: 2547822440321763772}
   m_Layer: 6
   m_Name: Dummy2
   m_TagString: Untagged
@@ -866,27 +866,14 @@ MonoBehaviour:
   characterCombatManager: {fileID: 0}
   characterSoundFXManager: {fileID: 0}
   characterLocomotionManager: {fileID: 0}
+  characterGroup: 1
   isPerformingAction: 0
   isGrounded: 1
   applyRootMotion: 0
   canRotate: 1
   canMove: 1
---- !u!114 &-6825329350500993745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4305691042495568919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c3893ffb0e6f94899d37815a049616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastAttackAnimationPerformed: 
-  currentTarget: {fileID: 0}
-  currentAttackType: 0
-  lockOnTransform: {fileID: 0}
+  aiCharacterCombatManager: {fileID: 0}
+  currentState: {fileID: 11400000, guid: 22b903d9dfc96a64e9ebd08b3a169705, type: 2}
 --- !u!114 &5469195601891977946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,6 +984,25 @@ MonoBehaviour:
   backward_Medium_Damage: []
   left_Medium_Damage: []
   right_Medium_Damage: []
+--- !u!114 &2547822440321763772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305691042495568919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8219f445b96f0342974dbc464e22e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastAttackAnimationPerformed: 
+  currentTarget: {fileID: 0}
+  currentAttackType: 0
+  lockOnTransform: {fileID: 641806408423918955}
+  detectionRadius: 15
+  minimumDetectionAngle: -35
+  maximumDetectionAngle: 35
 --- !u!1 &4922932340963089169
 GameObject:
   m_ObjectHideFlags: 0
