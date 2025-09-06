@@ -1297,12 +1297,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9155536050482476208, guid: a97f128fe9dafbf4a867e62eff9ed55a, type: 3}
       propertyPath: NetworkConfig.NetworkPrefabs.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9155536050482476208, guid: a97f128fe9dafbf4a867e62eff9ed55a, type: 3}
       propertyPath: NetworkConfig.NetworkPrefabs.Array.data[0].Prefab
       value: 
-      objectReference: {fileID: 3821975423867849656, guid: a89f48c71f75a384c9edb4b4bd0434c8, type: 3}
+      objectReference: {fileID: 4305691042495568919, guid: 1f1e4340b20ed874e9218b832d77e385, type: 3}
+    - target: {fileID: 9155536050482476208, guid: a97f128fe9dafbf4a867e62eff9ed55a, type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.data[1].Prefab
+      value: 
+      objectReference: {fileID: 4305691042495568919, guid: e5e2c8846ae98bc4288d41dcb2e37ec6, type: 3}
+    - target: {fileID: 9155536050482476208, guid: a97f128fe9dafbf4a867e62eff9ed55a, type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.data[2].Prefab
+      value: 
+      objectReference: {fileID: 8062430738329189180, guid: 64a797704e157b84796cd0dc473af151, type: 3}
+    - target: {fileID: 9155536050482476208, guid: a97f128fe9dafbf4a867e62eff9ed55a, type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.data[3].Prefab
+      value: 
+      objectReference: {fileID: 6118427832673964992, guid: 19c32f166df1f204e95d134a748c6cd0, type: 3}
     - target: {fileID: 9155536050482476209, guid: a97f128fe9dafbf4a867e62eff9ed55a, type: 3}
       propertyPath: m_Name
       value: WorldNetworkManager
