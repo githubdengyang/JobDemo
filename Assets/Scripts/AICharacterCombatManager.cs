@@ -7,6 +7,7 @@ namespace SG
     public class AICharacterCombatManager : CharacterCombatManeger
     {
         [Header("Target Information")]
+        public float distanceFromTarget;
         public float viewableAngle;
         public Vector3 targetsDirection;
 
