@@ -10,9 +10,9 @@ namespace SG
     {
         [Header("Attacks")]
         public List<AICharacterAttackAction> aiCharacterAttacks;    //  A list of all possible attacks this character can do
-        protected List<AICharacterAttackAction> potentialAttacks;     //  All attacks possible in this situation (based on angle, distance ect)
-        private AICharacterAttackAction choosenAttack;
-        private AICharacterAttackAction previousAttack;
+        [SerializeField] protected List<AICharacterAttackAction> potentialAttacks;     //  All attacks possible in this situation (based on angle, distance ect)
+        [SerializeField] private AICharacterAttackAction choosenAttack;
+        [SerializeField] private AICharacterAttackAction previousAttack;
         protected bool hasAttack = false;
 
         [Header("Combo")]
@@ -21,7 +21,7 @@ namespace SG
         protected bool hasRolledForComboChance = false;      // If we have already rolled for the chance during this state
 
         [Header("Engagement Distance")]
-        [SerializeField] protected float maximumEngagementDistance = 5; //  The distance we have to be away from the target before we enter the pursue target state
+        [SerializeField] public float maximumEngagementDistance = 5; //  The distance we have to be away from the target before we enter the pursue target state
 
         public override AIState Tick(AICharacterManager aiCharacter)
         {
@@ -38,7 +38,7 @@ namespace SG
                     aiCharacter.aiCharacterCombatManager.PivotTowardsTarget(aiCharacter);
             }
 
-            //  ROTATE TO FACE OUR TARGET
+            aiCharacter.aiCharacterCombatManager.RotateTowardsAgent(aiCharacter);
 
             //  IF OUR TARGET IS NO LONGER PRESENT, SWITCH BACK TO IDLE
             if (aiCharacter.aiCharacterCombatManager.currentTarget == null)
@@ -51,10 +51,9 @@ namespace SG
             }
             else
             {
-                //  CHECK RECOVERY TIMER,
-                //  PASS ATTACK TO ATTACK STATE
+                aiCharacter.attack.currentAttack = choosenAttack;
                 //  ROLL FOR COMBO CHANCE
-                //  SWITCH STATE
+                return SwitchState(aiCharacter, aiCharacter.attack);
             }
 
             //  IF WE ARE OUTSIDE OF THE COMBAT ENGAGEMENT DISTANCE, SWITCH TO PURSUE TARGET STATE
@@ -72,7 +71,7 @@ namespace SG
         {
             potentialAttacks = new List<AICharacterAttackAction>();
 
-            foreach (var potentialAttack in potentialAttacks)
+            foreach (var potentialAttack in aiCharacterAttacks)
             {
                 //  IF WE ARE TOO CLOSE FOR THIS ATTACK, CHECK THE NEXT
                 if (potentialAttack.minimumAttackDistance > aiCharacter.aiCharacterCombatManager.distanceFromTarget)
@@ -115,6 +114,7 @@ namespace SG
                     choosenAttack = attack;
                     previousAttack = choosenAttack;
                     hasAttack = true;
+                    return;
                 }
             }
         }
