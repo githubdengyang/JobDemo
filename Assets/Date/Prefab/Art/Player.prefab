@@ -921,6 +921,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36879a1dff4d16438514b07676981e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageGrunts:
+  - {fileID: 8300000, guid: 38d94d0a9dc50ff489a759c1eb23662d, type: 3}
+  attackGrunts:
+  - {fileID: 8300000, guid: 8e5411494223bd94694083362b82ee01, type: 3}
 --- !u!114 &2683310896011738507
 MonoBehaviour:
   m_ObjectHideFlags: 0
