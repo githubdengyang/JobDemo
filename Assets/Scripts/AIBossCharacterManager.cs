@@ -9,23 +9,29 @@ namespace SG
     {
         public int bossID = 0;
         [SerializeField] bool hasBeenDefeated = false;
+        [SerializeField] bool hasBeenAwakened = false;
+        [SerializeField] List<FogWallInteractable> fogWalls;
         //  WHEN THIS A.I IS SPAWNED, CHECK OUR SAVE FILE (DICTIONARY)
         //  IF THE SAVE FILE DOES NOT CONTAIN A BOSS MONSTER WITH THIS I.D ADD IT
         //  IF IT IS PRESENT, CHECK IF THE BOSS HAS BEEN DEFEATED
         //  IF THE BOSS HAS BEEN DEFEATED, DISABLE THIS GAMEOBJECT
         //  IF THE BOSS HAS NOT BEEN DEFEATED, ALLOW THIS OBJECT TO CONTINUE TO BE ACTIVE
-        public bool debugIsDead = false;
 
-		public void Update()
-		{
-			if (debugIsDead)
-			{
-                StartCoroutine(ProcessDeathEvent());
-				debugIsDead = false;
-			}
-		}
+        [Header("DEBUG")]
+        [SerializeField] bool wakeBossUp = false;
 
-		public override void OnNetworkSpawn()
+        protected override void Update()
+        {
+            base.Update();
+
+            if (wakeBossUp)
+            {
+                wakeBossUp = false;
+                WakeBoss();
+            }
+        }
+
+        public override void OnNetworkSpawn()
         {
             base.OnNetworkSpawn();
 
@@ -41,12 +47,45 @@ namespace SG
                 else
                 {
                     hasBeenDefeated = WorldSaveGameManager.instance.currentCharacterData.bossesDefeated[bossID];
-                   
-                    if (hasBeenDefeated)
+                    hasBeenAwakened = WorldSaveGameManager.instance.currentCharacterData.bossesAwakened[bossID];                
+                }
+
+                //  LOCATE FOG WALLS
+                StartCoroutine(GetFogWallsFromWorldObjectManager());
+
+                //  IF THE BOSS HAS BEEN AWAKENED, ENABLE THE FOG WALLS
+                if (hasBeenAwakened)
+                {
+                    for (int i = 0; i < fogWalls.Count; i++)
                     {
-                        aiCharacterNetworkManager.isActive.Value = false;
+                        fogWalls[i].isActive.Value = true;
                     }
                 }
+
+                //  IF THE BOSS HAS BEEN DEFEATED DISABLE THE FOG WALLS
+                if (hasBeenDefeated)
+                {
+                    for (int i = 0; i < fogWalls.Count; i++)
+                    {
+                        fogWalls[i].isActive.Value = false;
+                    }
+
+                    aiCharacterNetworkManager.isActive.Value = false;
+                }
+            }
+        }
+
+        private IEnumerator GetFogWallsFromWorldObjectManager()
+        {
+            while (WorldObjectManager.instance.fogWalls.Count == 0)
+                yield return new WaitForEndOfFrame();
+
+            fogWalls = new List<FogWallInteractable>();
+
+            foreach (var fogWall in WorldObjectManager.instance.fogWalls)
+            {
+                if (fogWall.fogWallID == bossID)
+                    fogWalls.Add(fogWall);
             }
         }
 
@@ -93,6 +132,26 @@ namespace SG
             //  AWARD PLAYERS WITH RUNES
 
             //  DISABLE CHARACTER
+        }
+
+        public void WakeBoss()
+        {
+            hasBeenAwakened = true;
+
+            if (!WorldSaveGameManager.instance.currentCharacterData.bossesAwakened.ContainsKey(bossID))
+            {
+                WorldSaveGameManager.instance.currentCharacterData.bossesAwakened.Add(bossID, true);
+            }
+            else
+            {
+                WorldSaveGameManager.instance.currentCharacterData.bossesAwakened.Remove(bossID);
+                WorldSaveGameManager.instance.currentCharacterData.bossesAwakened.Add(bossID, true);
+            }
+
+            for (int i = 0; i < fogWalls.Count; i++)
+            {
+                fogWalls[i].isActive.Value = true;
+            }
         }
     }
 }
