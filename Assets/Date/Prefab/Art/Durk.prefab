@@ -715,7 +715,7 @@ MonoBehaviour:
   attack02DamageModifier: 1.4
   attack03DamageModifier: 1.6
   stompDamage: 25
-  durkImpactVFX: {fileID: 194062, guid: 8c27aeead6d968e4ba986702d6b84335, type: 3}
+  durkImpactVFX: {fileID: 2433282508537954060, guid: 4082417f6b8252647bb37b225d511d27, type: 3}
 --- !u!114 &610595150836088669
 MonoBehaviour:
   m_ObjectHideFlags: 0
