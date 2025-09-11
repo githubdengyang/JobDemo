@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37cc7355c45fd3349bf383d915ba43f2, type: 3}
-  m_Name: Attack 02
+  m_Name: Undead Attack 01
   m_EditorClassIdentifier: 
-  attackAnimation: Attack_02
-  comboAction: {fileID: 11400000, guid: fcba6f85ae418254ab4e3f360d860f3e, type: 2}
-  attackType: 1
+  attackAnimation: Attack_01
+  comboAction: {fileID: 11400000, guid: 57b5c9522c65cb844a821ac66e0e02f9, type: 2}
+  attackType: 0
   attackWeight: 50
   actionRecoveryTime: 1.5
   minimumAttackAngle: -35

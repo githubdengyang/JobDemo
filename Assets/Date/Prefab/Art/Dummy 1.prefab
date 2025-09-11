@@ -1040,6 +1040,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a061b1b8b336f3c43add2b659f6a6711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive:
+    m_InternalValue: 1
   networkPosition:
     m_InternalValue: {x: 0, y: 0, z: 0}
   networkRotation:
@@ -1056,6 +1058,8 @@ MonoBehaviour:
   moveAmount:
     m_InternalValue: 0
   currentTargetNetworkObjectID:
+    m_InternalValue: 0
+  isInvulnerable:
     m_InternalValue: 0
   isLockedOn:
     m_InternalValue: 0
@@ -1212,6 +1216,7 @@ MonoBehaviour:
   currentAttackType: 0
   lockOnTransform: {fileID: 0}
   actionRecoveryTimer: 0
+  enablePivot: 1
   distanceFromTarget: 0
   viewableAngle: 0
   targetsDirection: {x: 0, y: 0, z: 0}

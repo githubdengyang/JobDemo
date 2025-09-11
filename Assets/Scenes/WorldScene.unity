@@ -688,7 +688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &98624073
 Transform:
   m_ObjectHideFlags: 0
@@ -12486,10 +12486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743cb4cdbde71b24899d00fdf27c76d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiCharacterSpawners:
-  - {fileID: 98624074}
-  - {fileID: 1932322110}
-  - {fileID: 2058992291}
+  aiCharacterSpawners: []
   spawnedInCharacters: []
 --- !u!4 &1668638101
 Transform:
@@ -13805,7 +13802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1932322109
 Transform:
   m_ObjectHideFlags: 0

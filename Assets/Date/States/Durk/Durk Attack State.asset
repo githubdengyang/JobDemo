@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d96992b498ed0b240966625aaa06b54d, type: 3}
-  m_Name: Idle State
+  m_Script: {fileID: 11500000, guid: e37ace4949c8bb440856d5bfa6cbf850, type: 3}
+  m_Name: Durk Attack State
   m_EditorClassIdentifier: 
+  currentAttack: {fileID: 0}
+  willPerformCombo: 0
+  pivotAfterAttack: 0
