@@ -286,8 +286,8 @@ GameObject:
   - component: {fileID: 8038206741530282232}
   - component: {fileID: 7839446461259138018}
   - component: {fileID: 4500526473307010298}
-  - component: {fileID: 4181996574951069779}
   - component: {fileID: 6999122656395363453}
+  - component: {fileID: -4045605852773332223}
   - component: {fileID: 8525104776175906725}
   - component: {fileID: 4250635017043401927}
   - component: {fileID: 1654345594836092740}
@@ -487,7 +487,7 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &4181996574951069779
+--- !u!114 &6999122656395363453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -496,7 +496,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1227089772622934704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a061b1b8b336f3c43add2b659f6a6711, type: 3}
+  m_Script: {fileID: 11500000, guid: 761f48cb1307fea4aa247e6c68571aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaRegenerationAmount: 2
+  staminaRegenerationDelay: 2
+--- !u!114 &-4045605852773332223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227089772622934704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc4905c50788d5479ad87ef5274016e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isActive:
@@ -529,9 +543,9 @@ MonoBehaviour:
   isChargingAttack:
     m_InternalValue: 0
   currentHealth:
-    m_InternalValue: 0
+    m_InternalValue: 50
   maxHealth:
-    m_InternalValue: 0
+    m_InternalValue: 50
   currentStamina:
     m_InternalValue: 0
   maxStamina:
@@ -540,20 +554,6 @@ MonoBehaviour:
     m_InternalValue: 1
   endurance:
     m_InternalValue: 1
---- !u!114 &6999122656395363453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227089772622934704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 761f48cb1307fea4aa247e6c68571aaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  staminaRegenerationAmount: 2
-  staminaRegenerationDelay: 2
 --- !u!114 &8525104776175906725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,6 +589,8 @@ MonoBehaviour:
   combatStance: {fileID: 11400000, guid: 9c450e1a2af73e244b258b2e56b84420, type: 2}
   attack: {fileID: 11400000, guid: df8d37cffa9bb4342806f3f4ce4649b9, type: 2}
   bossID: 0
+  bossIntroClip: {fileID: 8300000, guid: 794be7c4bd9e64c9bbb9776937807a9e, type: 3}
+  bossBattleLoopClip: {fileID: 8300000, guid: 794be7c4bd9e64c9bbb9776937807a9e, type: 3}
   bossFightIsActive:
     m_InternalValue: 0
   hasBeenAwakened:
@@ -598,6 +600,9 @@ MonoBehaviour:
   fogWalls: []
   sleepAnimation: Sleep_01
   awakenAnimation: Awaken_01
+  minimumHealthPercentageToShift: 50
+  phaseShiftAnimation: Phase_Change_01
+  phase02CombatStanceState: {fileID: 11400000, guid: a8550fd944dbbfc4a8165df3219b5158, type: 2}
   sleepState: {fileID: 11400000, guid: 54e3217d6e431734aa8ffb856d20b181, type: 2}
   durkSoundFXManager: {fileID: 0}
   durkCombatManager: {fileID: 0}
