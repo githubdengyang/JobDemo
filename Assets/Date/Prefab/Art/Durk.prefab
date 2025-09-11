@@ -1,5 +1,167 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &48886057080111300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7750459631989216557}
+  - component: {fileID: 5725636962263784403}
+  - component: {fileID: 6228755081867901491}
+  - component: {fileID: 7255659975860912397}
+  m_Layer: 0
+  m_Name: Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7750459631989216557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48886057080111300}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5457350024179953379}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5725636962263784403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48886057080111300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e43dcaa75f10e4e8afed84540b8764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCollider: {fileID: 0}
+  physicalDamage: 0
+  magicDamage: 0
+  fireDamage: 0
+  lightningDamage: 0
+  holyDamage: 0
+  durkCharacterManager: {fileID: 0}
+--- !u!114 &6228755081867901491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48886057080111300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae872fe4e9b0da54189ea64bd1423212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToGround: 0.05
+--- !u!82 &7255659975860912397
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48886057080111300}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1.28
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &105235012667559567
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,14 +288,14 @@ GameObject:
   - component: {fileID: 4500526473307010298}
   - component: {fileID: 4181996574951069779}
   - component: {fileID: 6999122656395363453}
+  - component: {fileID: 8525104776175906725}
   - component: {fileID: 4250635017043401927}
   - component: {fileID: 1654345594836092740}
   - component: {fileID: 2311042726382322315}
-  - component: {fileID: 1782725331347733745}
   - component: {fileID: 6804147492554243238}
   - component: {fileID: 340998665889311278}
-  - component: {fileID: 6804147492554243236}
   - component: {fileID: 6804147492554243237}
+  - component: {fileID: 610595150836088669}
   m_Layer: 6
   m_Name: Durk
   m_TagString: Untagged
@@ -392,6 +554,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staminaRegenerationAmount: 2
   staminaRegenerationDelay: 2
+--- !u!114 &8525104776175906725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227089772622934704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ad1224f0688c149a029201e5e643a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead:
+    m_InternalValue: 0
+  characterController: {fileID: 0}
+  animator: {fileID: 0}
+  characterNetworkManager: {fileID: 0}
+  characterEffectsManager: {fileID: 0}
+  characterAnimatorManager: {fileID: 0}
+  characterCombatManager: {fileID: 0}
+  characterSoundFXManager: {fileID: 0}
+  characterLocomotionManager: {fileID: 0}
+  characterGroup: 1
+  isPerformingAction: 0
+  aiCharacterNetworkManager: {fileID: 0}
+  aiCharacterCombatManager: {fileID: 0}
+  aiCharacterLocomotionManager: {fileID: 0}
+  navMeshAgent: {fileID: 0}
+  currentState: {fileID: 11400000, guid: 72b20b7ff23dab84ba51b8332bdfd2af, type: 2}
+  idle: {fileID: 11400000, guid: 72b20b7ff23dab84ba51b8332bdfd2af, type: 2}
+  pursueTarget: {fileID: 11400000, guid: f5b1d0ef7a5b85b45ab22fedca4d29c3, type: 2}
+  combatStance: {fileID: 11400000, guid: 9c450e1a2af73e244b258b2e56b84420, type: 2}
+  attack: {fileID: 11400000, guid: df8d37cffa9bb4342806f3f4ce4649b9, type: 2}
+  bossID: 0
+  hasBeenDefeated: 0
+  hasBeenAwakened: 0
+  fogWalls: []
+  wakeBossUp: 0
+  durkSoundFXManager: {fileID: 0}
+  durkCombatManager: {fileID: 0}
 --- !u!114 &4250635017043401927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,22 +631,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodSplatterVFX: {fileID: 194062, guid: 8c27aeead6d968e4ba986702d6b84335, type: 3}
---- !u!114 &1782725331347733745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227089772622934704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36879a1dff4d16438514b07676981e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageGrunts:
-  - {fileID: 8300000, guid: 38d94d0a9dc50ff489a759c1eb23662d, type: 3}
-  attackGrunts:
-  - {fileID: 8300000, guid: 75de1e8a7ee070c4684d27550414d501, type: 3}
 --- !u!114 &6804147492554243238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,44 +682,6 @@ MonoBehaviour:
   backward_Medium_Damage: []
   left_Medium_Damage: []
   right_Medium_Damage: []
---- !u!114 &6804147492554243236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227089772622934704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a2203d0e7ed5014381a599db988f20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDead:
-    m_InternalValue: 0
-  characterController: {fileID: 0}
-  animator: {fileID: 0}
-  characterNetworkManager: {fileID: 0}
-  characterEffectsManager: {fileID: 0}
-  characterAnimatorManager: {fileID: 0}
-  characterCombatManager: {fileID: 0}
-  characterSoundFXManager: {fileID: 0}
-  characterLocomotionManager: {fileID: 0}
-  characterGroup: 1
-  isPerformingAction: 0
-  aiCharacterNetworkManager: {fileID: 0}
-  aiCharacterCombatManager: {fileID: 0}
-  aiCharacterLocomotionManager: {fileID: 0}
-  navMeshAgent: {fileID: 0}
-  currentState: {fileID: 11400000, guid: 72b20b7ff23dab84ba51b8332bdfd2af, type: 2}
-  idle: {fileID: 11400000, guid: 72b20b7ff23dab84ba51b8332bdfd2af, type: 2}
-  pursueTarget: {fileID: 11400000, guid: f5b1d0ef7a5b85b45ab22fedca4d29c3, type: 2}
-  combatStance: {fileID: 11400000, guid: 9c450e1a2af73e244b258b2e56b84420, type: 2}
-  attack: {fileID: 11400000, guid: df8d37cffa9bb4342806f3f4ce4649b9, type: 2}
-  bossID: 0
-  hasBeenDefeated: 0
-  hasBeenAwakened: 0
-  fogWalls: []
-  wakeBossUp: 0
 --- !u!114 &6804147492554243237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,7 +697,7 @@ MonoBehaviour:
   lastAttackAnimationPerformed: 
   currentTarget: {fileID: 0}
   currentAttackType: 0
-  lockOnTransform: {fileID: 0}
+  lockOnTransform: {fileID: 2463393209135309772}
   actionRecoveryTimer: 0
   enablePivot: 1
   distanceFromTarget: 0
@@ -560,13 +708,35 @@ MonoBehaviour:
   maximumFOV: 35
   attackRotationSpeed: 25
   clubDamageCollider: {fileID: 7937921182481609447}
-  durksStompingFoot: {fileID: 5457350024179953379}
+  stompCollider: {fileID: 5725636962263784403}
   stompAttackAOERadius: 1.5
   baseDamage: 25
   attack01DamageModifier: 1
   attack02DamageModifier: 1.4
   attack03DamageModifier: 1.6
   stompDamage: 25
+  durkImpactVFX: {fileID: 194062, guid: 8c27aeead6d968e4ba986702d6b84335, type: 3}
+--- !u!114 &610595150836088669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227089772622934704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a57a02975df9f40b84a9380d6228bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageGrunts: []
+  attackGrunts: []
+  footSteps: []
+  clubWhooshes:
+  - {fileID: 8300000, guid: 794be7c4bd9e64c9bbb9776937807a9e, type: 3}
+  clubImpacts:
+  - {fileID: 8300000, guid: 794be7c4bd9e64c9bbb9776937807a9e, type: 3}
+  stompImpacts:
+  - {fileID: 8300000, guid: 794be7c4bd9e64c9bbb9776937807a9e, type: 3}
 --- !u!1 &3227231311407737330
 GameObject:
   m_ObjectHideFlags: 0
