@@ -188,14 +188,5 @@ namespace SG
             character.characterNetworkManager.NotifyTheServerOfAttackActionAnimationServerRpc(NetworkManager.Singleton.LocalClientId, targetAnimation, applyRootMotion);
         }
 
-        public virtual void EnableCanDoCombo()
-        {
-
-        }
-
-        public virtual void DisableCanDoCombo()
-        {
-
-        }
     }
 }
