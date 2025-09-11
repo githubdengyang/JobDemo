@@ -335,6 +335,24 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QueRB"",
+                    ""type"": ""Button"",
+                    ""id"": ""3db80e9f-5f2f-4d65-b9c6-bc100c0bbe3e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QueRT"",
+                    ""type"": ""Button"",
+                    ""id"": ""7bd08a1b-a43b-4462-a5b1-c8998cfea5b3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -458,6 +476,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""SwitchLeftWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e822a04-89aa-4968-886a-f4de9e678459"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QueRB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ef8fa6d-0d67-4401-afaf-0f4e363e02d3"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QueRT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -522,6 +562,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_PlayerActions_HoldRT = m_PlayerActions.FindAction("HoldRT", throwIfNotFound: true);
         m_PlayerActions_SwitchRightWeapon = m_PlayerActions.FindAction("SwitchRightWeapon", throwIfNotFound: true);
         m_PlayerActions_SwitchLeftWeapon = m_PlayerActions.FindAction("SwitchLeftWeapon", throwIfNotFound: true);
+        m_PlayerActions_QueRB = m_PlayerActions.FindAction("QueRB", throwIfNotFound: true);
+        m_PlayerActions_QueRT = m_PlayerActions.FindAction("QueRT", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_X = m_UI.FindAction("X", throwIfNotFound: true);
@@ -661,6 +703,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_HoldRT;
     private readonly InputAction m_PlayerActions_SwitchRightWeapon;
     private readonly InputAction m_PlayerActions_SwitchLeftWeapon;
+    private readonly InputAction m_PlayerActions_QueRB;
+    private readonly InputAction m_PlayerActions_QueRT;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -676,6 +720,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @HoldRT => m_Wrapper.m_PlayerActions_HoldRT;
         public InputAction @SwitchRightWeapon => m_Wrapper.m_PlayerActions_SwitchRightWeapon;
         public InputAction @SwitchLeftWeapon => m_Wrapper.m_PlayerActions_SwitchLeftWeapon;
+        public InputAction @QueRB => m_Wrapper.m_PlayerActions_QueRB;
+        public InputAction @QueRT => m_Wrapper.m_PlayerActions_QueRT;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -718,6 +764,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @SwitchLeftWeapon.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSwitchLeftWeapon;
                 @SwitchLeftWeapon.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSwitchLeftWeapon;
                 @SwitchLeftWeapon.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSwitchLeftWeapon;
+                @QueRB.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnQueRB;
+                @QueRB.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnQueRB;
+                @QueRB.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnQueRB;
+                @QueRT.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnQueRT;
+                @QueRT.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnQueRT;
+                @QueRT.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnQueRT;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -755,6 +807,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @SwitchLeftWeapon.started += instance.OnSwitchLeftWeapon;
                 @SwitchLeftWeapon.performed += instance.OnSwitchLeftWeapon;
                 @SwitchLeftWeapon.canceled += instance.OnSwitchLeftWeapon;
+                @QueRB.started += instance.OnQueRB;
+                @QueRB.performed += instance.OnQueRB;
+                @QueRB.canceled += instance.OnQueRB;
+                @QueRT.started += instance.OnQueRT;
+                @QueRT.performed += instance.OnQueRT;
+                @QueRT.canceled += instance.OnQueRT;
             }
         }
     }
@@ -813,6 +871,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnHoldRT(InputAction.CallbackContext context);
         void OnSwitchRightWeapon(InputAction.CallbackContext context);
         void OnSwitchLeftWeapon(InputAction.CallbackContext context);
+        void OnQueRB(InputAction.CallbackContext context);
+        void OnQueRT(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

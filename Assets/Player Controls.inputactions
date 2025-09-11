@@ -313,6 +313,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "QueRB",
+                    "type": "Button",
+                    "id": "3db80e9f-5f2f-4d65-b9c6-bc100c0bbe3e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "QueRT",
+                    "type": "Button",
+                    "id": "7bd08a1b-a43b-4462-a5b1-c8998cfea5b3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -434,6 +452,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwitchLeftWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e822a04-89aa-4968-886a-f4de9e678459",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "QueRB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ef8fa6d-0d67-4401-afaf-0f4e363e02d3",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "QueRT",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
