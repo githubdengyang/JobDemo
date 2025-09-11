@@ -1032,6 +1032,7 @@ RectTransform:
   m_Children:
   - {fileID: 2479585038749043522}
   - {fileID: 7680451750051371899}
+  - {fileID: 919693704570192396}
   m_Father: {fileID: 5523762107580215899}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1056,6 +1057,44 @@ MonoBehaviour:
   staminaBar: {fileID: 5023229342232624308}
   rightWeaponQuickSlotIcon: {fileID: 4007957014475880980}
   leftWeaponQuickSlotIcon: {fileID: 4415973564386468260}
+  bossHealthBarParent: {fileID: 919693704570192396}
+  bossHealthBarObject: {fileID: 694362476682728042, guid: 249f46a16dd03684ca450ddb752d3586, type: 3}
+--- !u!1 &6768466964976474314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 919693704570192396}
+  m_Layer: 5
+  m_Name: BossHealthBars
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &919693704570192396
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6768466964976474314}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1962343215209200456}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 749, y: 200}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &7081779020890767061
 GameObject:
   m_ObjectHideFlags: 0
