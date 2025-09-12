@@ -94,7 +94,7 @@ namespace SG
 
             if (!hasBeenAwakened.Value)
             {
-                characterAnimatorManager.PlayTargetActionAnimation(sleepAnimation, true);
+                animator.Play(sleepAnimation);
             }
         }
 
@@ -217,13 +217,12 @@ namespace SG
             }
             else
             {
-                 WorldSoundFXManager.instance.StopBossMusic();
+                WorldSoundFXManager.instance.StopBossMusic();
             }
         }
 
         public void PhaseShift()
         {
-            Debug.Log("PhaseShift");
             characterAnimatorManager.PlayTargetActionAnimation(phaseShiftAnimation, true);
             combatStance = Instantiate(phase02CombatStanceState);
             currentState = combatStance;
