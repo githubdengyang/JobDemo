@@ -695,6 +695,7 @@ MonoBehaviour:
   characterEffectsManager: {fileID: 0}
   characterAnimatorManager: {fileID: 0}
   characterCombatManager: {fileID: 0}
+  characterStatsManager: {fileID: 0}
   characterSoundFXManager: {fileID: 0}
   characterLocomotionManager: {fileID: 0}
   characterUIManager: {fileID: 0}
@@ -738,6 +739,8 @@ MonoBehaviour:
   moveAmount:
     m_InternalValue: 0
   currentTargetNetworkObjectID:
+    m_InternalValue: 0
+  isBlocking:
     m_InternalValue: 0
   isInvulnerable:
     m_InternalValue: 0
@@ -854,6 +857,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staminaRegenerationAmount: 2
   staminaRegenerationDelay: 2
+  blockingPhysicalAbsorption: 100
+  blockingFireAbsorption: 100
+  blockingMagicAbsorption: 100
+  blockingLightningAbsorption: 100
+  blockingHolyAbsorption: 100
 --- !u!114 &1398970952095710084
 MonoBehaviour:
   m_ObjectHideFlags: 0

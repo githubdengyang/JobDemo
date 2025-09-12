@@ -53,6 +53,12 @@ namespace SG
             }
         }
 
+        protected override void GetBlockingDotValues(CharacterManager damageTarget)
+        {
+            directionFromAttackToDamageTarget = characterCausingDamage.transform.position - damageTarget.transform.position;
+            dotValueFromAttackToDamageTarget = Vector3.Dot(directionFromAttackToDamageTarget, damageTarget.transform.forward);
+        }
+
         protected override void DamageTarget(CharacterManager damageTarget)
         {
             //  WE DON'T WANT TO DAMAGE THE SAME TARGET MORE THAN ONCE IN A SINGLE ATTACK

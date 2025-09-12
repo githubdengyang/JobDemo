@@ -17,6 +17,7 @@ namespace SG
         [HideInInspector] public CharacterEffectsManager characterEffectsManager;
         [HideInInspector] public CharacterAnimatorManager characterAnimatorManager;
         [HideInInspector] public CharacterCombatManeger characterCombatManager;
+        [HideInInspector] public CharacterStatsManager characterStatsManager;
         [HideInInspector] public CharacterSoundFXManager characterSoundFXManager;
         [HideInInspector] public CharacterLocomotionManager characterLocomotionManager;
         [HideInInspector] public CharacterUIManager characterUIManager;
@@ -38,6 +39,7 @@ namespace SG
             characterEffectsManager = GetComponent<CharacterEffectsManager>();
             characterAnimatorManager = GetComponent<CharacterAnimatorManager>();
             characterCombatManager = GetComponent<CharacterCombatManeger>();
+            characterStatsManager = GetComponent<CharacterStatsManager>();
             characterSoundFXManager = GetComponent<CharacterSoundFXManager>();
             characterLocomotionManager = GetComponent<CharacterLocomotionManager>();
             characterUIManager = GetComponent<CharacterUIManager>();

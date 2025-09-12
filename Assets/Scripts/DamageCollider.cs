@@ -21,6 +21,10 @@ namespace SG {
         [Header("Characters Damaged")]
         protected List<CharacterManager> charactersDamaged = new List<CharacterManager>();
 
+        [Header("Block")]
+        protected Vector3 directionFromAttackToDamageTarget;
+        protected float dotValueFromAttackToDamageTarget;
+
         protected virtual void Awake()
         {
 
@@ -37,10 +41,44 @@ namespace SG {
                 //  CHECK IF WE CAN DAMAGE THIS TARGET BASED ON FRIENDLY FIRE
 
                 //  CHECK IF TARGET IS BLOCKING
-
+                CheckForBlock(damageTarget);
 
                 DamageTarget(damageTarget);
             }
+        }
+
+        protected virtual void CheckForBlock(CharacterManager damageTarget)
+        {
+            //  IF THIS CHARACTER HAS ALREADY BEEN DAMAGED, DO NOT PROCEED
+            if (charactersDamaged.Contains(damageTarget))
+                return;
+
+            GetBlockingDotValues(damageTarget);
+
+            // 1. CHECK IF THE CHARACTER BEING DAMAGED IS BLOCKING
+            if (damageTarget.characterNetworkManager.isBlocking.Value && dotValueFromAttackToDamageTarget > 0.3f)
+            {
+                // 2. IF THE CHARACTER IS BLOCKING, CHECK IF THEY ARE FACING IN THE CORRECT DIRECTION TO BLOCK SUCCESSFULLY
+
+                charactersDamaged.Add(damageTarget);
+
+                TakeBlockedDamageEffect damageEffect = Instantiate(WorldCharacterEffectsManager.instance.takeBlockedDamageEffect);
+
+                damageEffect.physicalDamage = physicalDamage;
+                damageEffect.magicDamage = magicDamage;
+                damageEffect.fireDamage = fireDamage;
+                damageEffect.holyDamage = holyDamage;
+                damageEffect.contactPoint = contactPoint;
+
+                // 3. APPLY BLOCKED CHARACTER DAMAGE TO TARGET
+                damageTarget.characterEffectsManager.ProcessInstantEffect(damageEffect);
+            }
+        }
+
+        protected virtual void GetBlockingDotValues(CharacterManager damageTarget)
+        {
+            directionFromAttackToDamageTarget = transform.position - damageTarget.transform.position;
+            dotValueFromAttackToDamageTarget = Vector3.Dot(directionFromAttackToDamageTarget, damageTarget.transform.forward);
         }
 
         protected virtual void DamageTarget(CharacterManager damageTarget)
