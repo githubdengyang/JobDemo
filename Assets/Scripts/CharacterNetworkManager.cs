@@ -45,7 +45,10 @@ namespace SG
         public NetworkVariable<int> vitality = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
         public NetworkVariable<int> endurance = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
-        protected virtual void Awake()
+		//获取到base的protected属性
+		public new bool IsHost { get { return base.IsHost; } }
+
+		protected virtual void Awake()
         {
             character = GetComponent<CharacterManager>();
         }
