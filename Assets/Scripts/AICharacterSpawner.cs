@@ -26,6 +26,7 @@ namespace SG
         {
             if (characterGameObject != null)
             {
+                Debug.Log("[Test]Instantiate");
                 instantiatedGameObject = Instantiate(characterGameObject);
                 instantiatedGameObject.transform.position = transform.position;
                 instantiatedGameObject.transform.rotation = transform.rotation;

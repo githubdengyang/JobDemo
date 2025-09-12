@@ -7252,6 +7252,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Durk
       objectReference: {fileID: 0}
+    - target: {fileID: 1227089772622934704, guid: 15a1afca494198441809062ab1c53d01, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842391386390507161, guid: 15a1afca494198441809062ab1c53d01, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842391386390507161, guid: 15a1afca494198441809062ab1c53d01, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4500526473307010298, guid: 15a1afca494198441809062ab1c53d01, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 605128363
