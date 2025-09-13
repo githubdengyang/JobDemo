@@ -9,6 +9,9 @@ namespace SG
         [Header("Animations")]
         public AnimatorOverrideController weaponAnimator;
 
+        [Header("Model Instantiation")]
+        public WeaponModelType weaponModelType;
+
         [Header("Weapon Model")]
         public GameObject weaponModel;
 
@@ -51,10 +54,18 @@ namespace SG
         public float rollingAttackStaminaCostMultiplier = 1.1f;
         public float backstepAttackStaminaCostMultiplier = 1.1f;
 
+        [Header("Weapon Blocking Absorption")]
+        public float physicalBaseDamageAbsorption = 50;
+        public float magicBaseDamageAbsorption = 50;
+        public float fireBaseDamageAbsorption = 50;
+        public float holyBaseDamageAbsorption = 50;
+        public float lightningBaseDamageAbsorption = 50;
+        public float stability = 50;    // REDUCES STAMINA LOST FROM BLOCK
 
         [Header("Actions")]
         public WeaponItemAction oh_RB_Action;   // ONE HAND RIGHT BUMPER ACTION
         public WeaponItemAction oh_RT_Action;   // ONE HAND RIGHT TRIGGER ACTION
+        public WeaponItemAction oh_LB_Action;   // ONE HAND LEFT BUMPER ACTION
         //  ASH OF WAR
 
         //  BLOCKING SOUNDS

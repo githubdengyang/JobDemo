@@ -30,6 +30,7 @@ namespace SG
 
         [Header("Flags")]
         public NetworkVariable<bool> isBlocking = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+        public NetworkVariable<bool> isAttacking = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
         public NetworkVariable<bool> isInvulnerable = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
         public NetworkVariable<bool> isLockedOn = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
         public NetworkVariable<bool> isSprinting = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
@@ -46,7 +47,7 @@ namespace SG
         public NetworkVariable<int> vitality = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
         public NetworkVariable<int> endurance = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
-		//»ñÈ¡µ½baseµÄprotectedÊôÐÔ
+		//ï¿½ï¿½È¡ï¿½ï¿½baseï¿½ï¿½protectedï¿½ï¿½ï¿½ï¿½
 		public new bool IsHost { get { return base.IsHost; } }
 
 		protected virtual void Awake()
@@ -100,6 +101,11 @@ namespace SG
         public virtual void OnIsActiveChanged(bool oldStatus, bool newStatus)
         {
             gameObject.SetActive(isActive.Value);
+        }
+
+        public virtual void OnIsBlockingChanged(bool oldStatus, bool newStatus)
+        {
+            character.animator.SetBool("isBlocking", isBlocking.Value);
         }
 
         //  A SERVER RPC IS A FUNCTION CALLED FROM A CLIENT, TO THE SERVER (IN OUR CASE THE HOST)

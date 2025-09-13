@@ -362,6 +362,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LB"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e3e3c66-64b5-48c9-bdb6-95301906b711"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -518,6 +527,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13d75803-0658-4bd1-8852-ed6ab3053a8f"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -585,6 +605,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_PlayerActions_QueRB = m_PlayerActions.FindAction("QueRB", throwIfNotFound: true);
         m_PlayerActions_QueRT = m_PlayerActions.FindAction("QueRT", throwIfNotFound: true);
         m_PlayerActions_Interact = m_PlayerActions.FindAction("Interact", throwIfNotFound: true);
+        m_PlayerActions_LB = m_PlayerActions.FindAction("LB", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_X = m_UI.FindAction("X", throwIfNotFound: true);
@@ -727,6 +748,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_QueRB;
     private readonly InputAction m_PlayerActions_QueRT;
     private readonly InputAction m_PlayerActions_Interact;
+    private readonly InputAction m_PlayerActions_LB;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -745,6 +767,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @QueRB => m_Wrapper.m_PlayerActions_QueRB;
         public InputAction @QueRT => m_Wrapper.m_PlayerActions_QueRT;
         public InputAction @Interact => m_Wrapper.m_PlayerActions_Interact;
+        public InputAction @LB => m_Wrapper.m_PlayerActions_LB;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -796,6 +819,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnInteract;
+                @LB.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLB;
+                @LB.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLB;
+                @LB.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLB;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -842,6 +868,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @LB.started += instance.OnLB;
+                @LB.performed += instance.OnLB;
+                @LB.canceled += instance.OnLB;
             }
         }
     }
@@ -903,6 +932,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnQueRB(InputAction.CallbackContext context);
         void OnQueRT(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnLB(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

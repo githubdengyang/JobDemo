@@ -23,6 +23,9 @@ namespace SG
             if (!playerPerformingAction.characterLocomotionManager.isGrounded)
                 return;
 
+            if (playerPerformingAction.IsOwner)
+                playerPerformingAction.playerNetworkManager.isAttacking.Value = true;
+
             PerformHeavyAttack(playerPerformingAction, weaponPerformingAction);
         }
 

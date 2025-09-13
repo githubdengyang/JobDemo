@@ -30,6 +30,7 @@ namespace SG
             {
                 character.characterNetworkManager.isJumping.Value = false;
                 character.characterNetworkManager.isInvulnerable.Value = false;
+                character.characterNetworkManager.isAttacking.Value = false;
             }
         }
 
