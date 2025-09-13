@@ -82,6 +82,13 @@ namespace SG
         {
             WeaponItem newWeapon = Instantiate(WorldItemDatabase.Instance.GetWeaponByID(newID));
             player.playerCombatManager.currentWeaponBeingUsed = newWeapon;
+
+            //  WE DONT NEED TO RUN THIS CODE IF WE ARE THE OWNER BECAUSE WE'VE ALREADY DONE SO LOCALLY
+            if (player.IsOwner)
+                return;
+
+            if (player.playerCombatManager.currentWeaponBeingUsed != null)
+                player.playerAnimatorManager.UpdateAnimatorController(player.playerCombatManager.currentWeaponBeingUsed.weaponAnimator);
         }
 
         //  ITEM ACTIONS
