@@ -233,6 +233,7 @@ MonoBehaviour:
   weaponItemActions:
   - {fileID: 11400000, guid: 3e602e9e24d49734f8991a29b775cc8d, type: 2}
   - {fileID: 11400000, guid: b9321a25f277ed545a00120312d1dda1, type: 2}
+  - {fileID: 11400000, guid: 66e92c9df249f5c4a81ea4f7dcd7b002, type: 2}
 --- !u!4 &474531496
 Transform:
   m_ObjectHideFlags: 0
@@ -828,6 +829,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1642651588050053973, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -12.245239
+      objectReference: {fileID: 0}
     - target: {fileID: 2492246477832276183, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1052,13 +1057,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6777734323214761748, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -12.245239
+      objectReference: {fileID: 0}
     - target: {fileID: 9205371721066302475, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 3.0810547
       objectReference: {fileID: 0}
     - target: {fileID: 9205371721066302475, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.245117
+      value: -12.245239
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
