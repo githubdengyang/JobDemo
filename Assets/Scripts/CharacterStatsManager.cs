@@ -22,6 +22,13 @@ namespace SG
         public float blockingHolyAbsorption;
         public float blockingStability;
 
+        [Header("Poise")]
+        public float totalPoiseDamage;              // How much poise damage we have taken
+        public float offensivePoiseBonus;           // The poise bonus gained from using weapons (heavy weapons have a much larger bonus)
+        public float basePoiseDefense;              // The poise bonus gained from armor/talismans ect
+        public float defaultPoiseResetTime = 8;     // The time it takes for poise damage to reset (must not be hit in the time or it will reset)
+        public float poiseResetTimer = 0;           // The current timer for poise reset
+
         protected virtual void Awake()
         {
             character = GetComponent<CharacterManager>();
@@ -30,6 +37,11 @@ namespace SG
         protected virtual void Start()
         {
 
+        }
+
+        protected virtual void Update()
+        {
+            HandlePoiseResetTimer();
         }
 
         public int CalculateHealthBasedOnVitalityLevel(int vitality)
@@ -91,6 +103,18 @@ namespace SG
             if (currentStaminaAmount < previousStaminaAmount)
             {
                 staminaRegenerationTimer = 0;
+            }
+        }
+
+        protected virtual void HandlePoiseResetTimer()
+        {
+            if (poiseResetTimer > 0)
+            {
+                poiseResetTimer -= Time.deltaTime;
+            }
+            else
+            {
+                totalPoiseDamage = 0;
             }
         }
     }

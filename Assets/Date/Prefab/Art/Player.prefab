@@ -865,6 +865,11 @@ MonoBehaviour:
   blockingLightningAbsorption: 100
   blockingHolyAbsorption: 100
   blockingStability: 0
+  totalPoiseDamage: 0
+  offensivePoiseBonus: 0
+  basePoiseDefense: 100
+  defaultPoiseResetTime: 8
+  poiseResetTimer: 0
 --- !u!114 &1398970952095710084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,6 +922,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyRootMotion: 0
   lastDamageAnimationPlayed: 
+  hit_Forward_Ping_01: Hit_Forward_Ping_01
+  hit_Forward_Ping_02: Hit_Forward_Ping_02
+  hit_Backward_Ping_01: Hit_Backward_Ping_01
+  hit_Backward_Ping_02: Hit_Backward_Ping_02
+  hit_Left_Ping_01: Hit_Left_Ping_01
+  hit_Left_Ping_02: Hit_Left_Ping_02
+  hit_Right_Ping_01: Hit_Right_Ping_01
+  hit_Right_Ping_02: Hit_Right_Ping_02
+  forward_Ping_Damage: []
+  backward_Ping_Damage: []
+  left_Ping_Damage: []
+  right_Ping_Damage: []
   hit_Forward_Medium_01: Hit_Forward_Medium_01
   hit_Forward_Medium_02: Hit_Forward_Medium_02
   hit_Backward_Medium_01: Hit_Backward_Medium_01
