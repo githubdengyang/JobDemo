@@ -17,6 +17,7 @@ MonoBehaviour:
   itemDescription: 
   itemID: 1
   weaponAnimator: {fileID: 22100000, guid: 56d2c36ad49b6ee4290a322c32d4ebcf, type: 2}
+  weaponModelType: 0
   weaponModel: {fileID: 4718178142049903673, guid: 0ccd2b0af1c163d4591fc4aee2fe6f0b, type: 3}
   strengthREQ: 10
   dexREQ: 10
@@ -44,7 +45,16 @@ MonoBehaviour:
   runningAttackStaminaCostMultiplier: 1.1
   rollingAttackStaminaCostMultiplier: 1.1
   backstepAttackStaminaCostMultiplier: 1.1
+  physicalBaseDamageAbsorption: 50
+  magicBaseDamageAbsorption: 50
+  fireBaseDamageAbsorption: 50
+  holyBaseDamageAbsorption: 50
+  lightningBaseDamageAbsorption: 50
+  stability: 50
   oh_RB_Action: {fileID: 11400000, guid: b9321a25f277ed545a00120312d1dda1, type: 2}
   oh_RT_Action: {fileID: 11400000, guid: be6304d9f995802409da0c10087a8a2f, type: 2}
+  oh_LB_Action: {fileID: 0}
   whooshes:
   - {fileID: 8300000, guid: 1c3bb45981235e84098bee98ec8c80ed, type: 3}
+  blocking:
+  - {fileID: 8300000, guid: 794be7c4bd9e64c9bbb9776937807a9e, type: 3}

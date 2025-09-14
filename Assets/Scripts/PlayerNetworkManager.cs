@@ -102,6 +102,7 @@ namespace SG
                 player.playerStatsManager.blockingFireAbsorption = player.playerCombatManager.currentWeaponBeingUsed.fireBaseDamageAbsorption;
                 player.playerStatsManager.blockingLightningAbsorption = player.playerCombatManager.currentWeaponBeingUsed.lightningBaseDamageAbsorption;
                 player.playerStatsManager.blockingHolyAbsorption = player.playerCombatManager.currentWeaponBeingUsed.holyBaseDamageAbsorption;
+                player.playerStatsManager.blockingStability = player.playerCombatManager.currentWeaponBeingUsed.stability;
             }
         }
 

@@ -24,6 +24,10 @@ namespace SG
         public float poiseDamage = 0;
         public bool poiseIsBroken = false;          //  IF POISE IS BROKEN CHARACTER IS "STUNNED" AND A DAMAGE ANIMATION IS PLAYED
 
+        [Header("Stamina")]
+        public float staminaDamage = 0;
+        public float finalStaminaDamage = 0;
+
         //  (TO DO) BUILD UPS
         //  build up effect amounts
 
@@ -54,12 +58,15 @@ namespace SG
                 return;
 
             CalculateDamage(character);
+            CalculateStaminaDamage(character);
             PlayDirectionalBasedBlockingAnimation(character);
             //  CHECK FOR BUILD UPS (POISON, BLEED ECT)
             PlayDamageSFX(character);
             PlayDamageVFX(character);
 
             //  IF CHARACTER IS A.I, CHECK FOR NEW TARGET IF CHARACTER CAUSING DAMAGE IS PRESENT
+
+            CheckForGuardBreak(character);
         }
 
         private void CalculateDamage(CharacterManager character)
@@ -100,6 +107,34 @@ namespace SG
             //  CALCULATE POISE DAMAGE TO DETERMINE IF THE CHARACTER WILL BE STUNNED
         }
 
+        private void CalculateStaminaDamage(CharacterManager character)
+        {
+            if (!character.IsOwner)
+                return;
+
+            finalStaminaDamage = staminaDamage;
+
+            float staminaDamageAbsorption = finalStaminaDamage * (character.characterStatsManager.blockingStability / 100);
+            float staminaDamageAfterAbsorption = finalStaminaDamage - staminaDamageAbsorption;
+
+            character.characterNetworkManager.currentStamina.Value -= staminaDamageAfterAbsorption;
+        }
+
+        private void CheckForGuardBreak(CharacterManager character)
+        {
+            //if (character.characterNetworkManager.currentStamina.Value <= 0)
+            //  PLAY SFX
+
+            if (!character.IsOwner)
+                return;
+
+            if (character.characterNetworkManager.currentStamina.Value <= 0)
+            {
+                character.characterAnimatorManager.PlayTargetActionAnimation("Guard_Break_01", true);
+				character.characterNetworkManager.isBlocking.Value = false;
+            }
+        }
+
         private void PlayDamageVFX(CharacterManager character)
         {
             //  IF WE HAVE FIRE DAMAGE, PLAY FIRE PARTICLES
@@ -113,7 +148,7 @@ namespace SG
             //  IF FIRE DAMAGE IS GREATER THAN 0, PLAY BURN SFX
             //  IF LIGHTNING DAMAGE IS GREATER THAN 0, PLAY ZAP SFX
 
-            // 1. GET SFX BASED ON BLOCKING WEAPON
+            character.characterSoundFXManager.PlayBlockSoundFX();
         }
 
         private void PlayDirectionalBasedBlockingAnimation(CharacterManager character)
@@ -151,6 +186,6 @@ namespace SG
 
             character.characterAnimatorManager.lastDamageAnimationPlayed = damageAnimation;
             character.characterAnimatorManager.PlayTargetActionAnimation(damageAnimation, true);
-        }
+		}
     }
 }

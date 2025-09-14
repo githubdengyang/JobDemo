@@ -15,6 +15,9 @@ namespace SG {
         public float lightningDamage = 0;
         public float holyDamage = 0;
 
+        [Header("Poise")]
+        public float poiseDamage = 0;
+
         [Header("Contact Point")]
         protected Vector3 contactPoint;
 
@@ -68,6 +71,8 @@ namespace SG {
                 damageEffect.magicDamage = magicDamage;
                 damageEffect.fireDamage = fireDamage;
                 damageEffect.holyDamage = holyDamage;
+                damageEffect.poiseDamage = poiseDamage;
+                damageEffect.staminaDamage = poiseDamage;   // IF YOU WANT TO GIVE STAMINA DAMAGE ITS OWN VARIABLE, INSTEAD OF USING POISE GO FOR IT
                 damageEffect.contactPoint = contactPoint;
 
                 // 3. APPLY BLOCKED CHARACTER DAMAGE TO TARGET
@@ -95,8 +100,8 @@ namespace SG {
             damageEffect.magicDamage = magicDamage;
             damageEffect.fireDamage = fireDamage;
             damageEffect.holyDamage = holyDamage;
+            damageEffect.poiseDamage = poiseDamage;
             damageEffect.contactPoint = contactPoint;
-
             damageTarget.characterEffectsManager.ProcessInstantEffect(damageEffect);
         }
 

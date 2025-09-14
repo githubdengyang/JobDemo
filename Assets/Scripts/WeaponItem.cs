@@ -68,8 +68,8 @@ namespace SG
         public WeaponItemAction oh_LB_Action;   // ONE HAND LEFT BUMPER ACTION
         //  ASH OF WAR
 
-        //  BLOCKING SOUNDS
-        [Header("Whooshes")]
+        [Header("SFX")]
         public AudioClip[] whooshes;
+        public AudioClip[] blocking;
     }
 }

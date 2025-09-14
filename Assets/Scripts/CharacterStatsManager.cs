@@ -20,6 +20,7 @@ namespace SG
         public float blockingMagicAbsorption;
         public float blockingLightningAbsorption;
         public float blockingHolyAbsorption;
+        public float blockingStability;
 
         protected virtual void Awake()
         {

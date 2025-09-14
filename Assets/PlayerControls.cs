@@ -411,7 +411,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""f7489348-e9da-45c4-a054-13de7ef66882"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Hold(pressPoint=1.401298E-45)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""RB"",
@@ -520,7 +520,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""13d75803-0658-4bd1-8852-ed6ab3053a8f"",
-                    ""path"": ""<Keyboard>/u"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -477,13 +477,13 @@ GameObject:
   - component: {fileID: -29780715816184921}
   - component: {fileID: 1398970952095710084}
   - component: {fileID: -1000706665515595847}
-  - component: {fileID: -1020371971374325845}
   - component: {fileID: 2683310896011738507}
   - component: {fileID: 3502647152866890604}
   - component: {fileID: 7386187061710197007}
   - component: {fileID: -229619110423577360}
   - component: {fileID: 5659288871395761410}
   - component: {fileID: 6699799863697335122}
+  - component: {fileID: 2831603024579198486}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -864,6 +864,7 @@ MonoBehaviour:
   blockingMagicAbsorption: 100
   blockingLightningAbsorption: 100
   blockingHolyAbsorption: 100
+  blockingStability: 0
 --- !u!114 &1398970952095710084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,23 +929,6 @@ MonoBehaviour:
   backward_Medium_Damage: []
   left_Medium_Damage: []
   right_Medium_Damage: []
---- !u!114 &-1020371971374325845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3821975423867849656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36879a1dff4d16438514b07676981e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageGrunts:
-  - {fileID: 8300000, guid: 38d94d0a9dc50ff489a759c1eb23662d, type: 3}
-  attackGrunts:
-  - {fileID: 8300000, guid: 8e5411494223bd94694083362b82ee01, type: 3}
-  footSteps: []
 --- !u!114 &2683310896011738507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1050,6 +1034,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9fa4e74ae959d4d962ab73a598fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2831603024579198486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3821975423867849656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e56723216fa4cb47a36c84019ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageGrunts:
+  - {fileID: 8300000, guid: aa48101fd9bd24b82af88afb182a9bf5, type: 3}
+  attackGrunts:
+  - {fileID: 8300000, guid: 8e5411494223bd94694083362b82ee01, type: 3}
+  footSteps:
+  - {fileID: 8300000, guid: d89f26efb5aa1425cb495d6a9a966940, type: 3}
 --- !u!1 &4029822181395102931
 GameObject:
   m_ObjectHideFlags: 0

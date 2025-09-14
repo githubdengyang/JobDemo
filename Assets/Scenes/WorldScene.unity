@@ -12160,6 +12160,7 @@ MonoBehaviour:
   fireDamage: 0
   lightningDamage: 0
   holyDamage: 0
+  poiseDamage: 0
 --- !u!65 &1584018146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13845,6 +13846,7 @@ MonoBehaviour:
   fireDamage: 0
   lightningDamage: 0
   holyDamage: 0
+  poiseDamage: 0
 --- !u!1 &1910555719
 GameObject:
   m_ObjectHideFlags: 0
@@ -14152,7 +14154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1932322109
 Transform:
   m_ObjectHideFlags: 0
@@ -15168,7 +15170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2058992290
 Transform:
   m_ObjectHideFlags: 0
