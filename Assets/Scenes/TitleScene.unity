@@ -831,7 +831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1642651588050053973, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.245239
+      value: -12.245117
       objectReference: {fileID: 0}
     - target: {fileID: 2492246477832276183, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1059,7 +1059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6777734323214761748, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.245239
+      value: -12.245117
       objectReference: {fileID: 0}
     - target: {fileID: 9205371721066302475, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1067,7 +1067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9205371721066302475, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.245239
+      value: -12.245117
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 742d1f85c09e05b499dab28b5b253e8c, type: 3}
@@ -1127,6 +1127,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 537756146351645614, guid: 899553158ad32ca4eb0878816c919913, type: 3}
+      propertyPath: twoHandingEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: ef96413a0494598459a37fba5fc6e1c6, type: 2}
+    - target: {fileID: 537756146351645614, guid: 899553158ad32ca4eb0878816c919913, type: 3}
+      propertyPath: staticEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 537756146351645614, guid: 899553158ad32ca4eb0878816c919913, type: 3}
+      propertyPath: staticEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ef96413a0494598459a37fba5fc6e1c6, type: 2}
     - target: {fileID: 537756146351645615, guid: 899553158ad32ca4eb0878816c919913, type: 3}
       propertyPath: m_Name
       value: WorldCharacterEffectsManager
@@ -1242,7 +1254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6678206443944764860, guid: 60b75d164327e1b4f9952398bb0329cc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -108.61243
+      value: -108.612305
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60b75d164327e1b4f9952398bb0329cc, type: 3}

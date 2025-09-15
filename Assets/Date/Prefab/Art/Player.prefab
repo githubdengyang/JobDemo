@@ -709,6 +709,7 @@ MonoBehaviour:
   playerEquipmentManager: {fileID: 0}
   playerCombatManager: {fileID: 0}
   playerInteractionManager: {fileID: 0}
+  playerEffectsManager: {fileID: 0}
 --- !u!114 &5113689573853448127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,6 +767,10 @@ MonoBehaviour:
     m_InternalValue: 1
   endurance:
     m_InternalValue: 1
+  strength:
+    m_InternalValue: 1
+  strengthModifier:
+    m_InternalValue: 0
   characterName:
     m_InternalValue:
       utf8LengthInBytes: 9
@@ -844,6 +849,14 @@ MonoBehaviour:
   isUsingRightHand:
     m_InternalValue: 0
   isUsingLeftHand:
+    m_InternalValue: 0
+  currentWeaponBeingTwoHanded:
+    m_InternalValue: 0
+  isTwoHandingWeapon:
+    m_InternalValue: 0
+  isTwoHandingRightWeapon:
+    m_InternalValue: 0
+  isTwoHandingLeftWeapon:
     m_InternalValue: 0
 --- !u!114 &-29780715816184921
 MonoBehaviour:
@@ -959,6 +972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodSplatterVFX: {fileID: 0}
+  staticEffects: []
   effectToTest: {fileID: 11400000, guid: 5af147f44d9ea334c9f24ddabddb6109, type: 2}
   processEffect: 1
 --- !u!114 &3502647152866890604
@@ -973,13 +987,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ec48d32cde8b34eba411f7a2878503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightHandSlot: {fileID: 0}
+  rightHandWeaponSlot: {fileID: 0}
   leftHandWeaponSlot: {fileID: 0}
   leftHandShieldSlot: {fileID: 0}
-  rightWeaponManager: {fileID: 0}
-  leftWeaponManager: {fileID: 0}
+  backSlot: {fileID: 0}
   rightHandWeaponModel: {fileID: 0}
   leftHandWeaponModel: {fileID: 0}
+  rightWeaponManager: {fileID: 0}
+  leftWeaponManager: {fileID: 0}
 --- !u!114 &7386187061710197007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -994,6 +1009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentRightHandWeapon: {fileID: 11400000, guid: 93aa10872bb63844686e016b8950b628, type: 2}
   currentLeftHandWeapon: {fileID: 11400000, guid: 93aa10872bb63844686e016b8950b628, type: 2}
+  currentTwoHandWeapon: {fileID: 0}
   weaponsInRightHandSlots:
   - {fileID: 11400000, guid: 93aa10872bb63844686e016b8950b628, type: 2}
   - {fileID: 11400000, guid: a749d4e44a8fc0b4695ca0eefe2c5a25, type: 2}
@@ -1483,6 +1499,52 @@ CapsuleCollider:
   m_Height: 0.54
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7761192720214194006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 296013656998553531}
+  - component: {fileID: 2325243424471936328}
+  m_Layer: 0
+  m_Name: Back Slot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &296013656998553531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7761192720214194006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.436, y: 0.198, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4828461895796733521}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2325243424471936328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7761192720214194006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258865e7845c38548b348b3323211150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSlot: 3
+  currentWeaponModel: {fileID: 0}
 --- !u!1 &7843297359585762262
 GameObject:
   m_ObjectHideFlags: 0

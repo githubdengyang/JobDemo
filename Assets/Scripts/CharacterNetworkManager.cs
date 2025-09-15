@@ -47,7 +47,12 @@ namespace SG
         public NetworkVariable<int> vitality = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
         public NetworkVariable<int> endurance = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
-		//��ȡ��base��protected����
+		//To use strength
+		public NetworkVariable<float> strength = new NetworkVariable<float>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+		public NetworkVariable<float> strengthModifier = new NetworkVariable<float>(0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+		
+
+		//To use base isHost
 		public new bool IsHost { get { return base.IsHost; } }
 
 		protected virtual void Awake()

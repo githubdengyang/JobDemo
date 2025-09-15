@@ -115,21 +115,51 @@ namespace SG
         public void OnIsTwoHandingWeaponChanged(bool oldStatus, bool newStatus)
         {
             if (!isTwoHandingWeapon.Value)
+            {
+                if (IsOwner)
+                {
+                    isTwoHandingLeftWeapon.Value = false;
+                    isTwoHandingRightWeapon.Value = false;
+                }
+
                 player.playerEquipmentManager.UnTwoHandWeapon();
+                player.playerEffectsManager.RemoveStaticEffect(WorldCharacterEffectsManager.instance.twoHandingEffect.staticEffectID);
+            }
+            else
+            {
+                StaticCharacterEffect twoHandEffect = Instantiate(WorldCharacterEffectsManager.instance.twoHandingEffect);
+                player.playerEffectsManager.AddStaticEffect(twoHandEffect);
+            }
+
+            player.animator.SetBool("isTwoHandingWeapon", isTwoHandingWeapon.Value);
         }
 
         public void OnIsTwoHandingRightWeaponChanged(bool oldStatus, bool newStatus)
         {
-            currentWeaponBeingTwoHanded.Value = currentRightHandWeaponID.Value;
-            isTwoHandingWeapon.Value = true;
+            if (!isTwoHandingRightWeapon.Value)
+                return;
+
+            if (IsOwner)
+            {
+                currentWeaponBeingTwoHanded.Value = currentRightHandWeaponID.Value;
+                isTwoHandingWeapon.Value = true;
+            }
+
             player.playerInventoryManager.currentTwoHandWeapon = player.playerInventoryManager.currentRightHandWeapon;
             player.playerEquipmentManager.TwoHandRightWeapon();
         }
 
         public void OnIsTwoHandingLeftWeaponChanged(bool oldStatus, bool newStatus)
         {
-            currentWeaponBeingTwoHanded.Value = currentLeftHandWeaponID.Value;
-            isTwoHandingWeapon.Value = true;
+            if (!isTwoHandingLeftWeapon.Value)
+                return;
+
+            if (IsOwner)
+            {
+                currentWeaponBeingTwoHanded.Value = currentLeftHandWeaponID.Value;
+                isTwoHandingWeapon.Value = true;
+            }
+
             player.playerInventoryManager.currentTwoHandWeapon = player.playerInventoryManager.currentLeftHandWeapon;
             player.playerEquipmentManager.TwoHandLeftWeapon();
         }
