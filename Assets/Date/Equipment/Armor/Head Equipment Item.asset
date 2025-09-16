@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: 
   itemIcon: {fileID: 0}
   itemDescription: 
-  itemID: 0
+  itemID: 3
   itemWeight: 0
   physicalDamageAbsorption: 0
   magicDamageAbsorption: 0
@@ -27,5 +27,6 @@ MonoBehaviour:
   focus: 0
   vitality: 0
   poise: 0
-  equipmentModels: []
+  equipmentModels:
+  - {fileID: 11400000, guid: f238ed079818bf44dbf4be324e91213b, type: 2}
   headEquipmentType: 0

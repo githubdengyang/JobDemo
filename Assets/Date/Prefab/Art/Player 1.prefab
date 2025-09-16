@@ -1612,7 +1612,7 @@ MonoBehaviour:
   backSlot: {fileID: 0}
   rightHandWeaponModel: {fileID: 0}
   leftHandWeaponModel: {fileID: 0}
-  equipNewItems: 0
+  equipNewItems: 1
   hatsObject: {fileID: 4724533416935511880}
   hats: []
   hoodsObject: {fileID: 4725399311065082312}
@@ -1706,7 +1706,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b99463d1d663e484296ac58747d031fa, type: 2}
   - {fileID: 11400000, guid: 93aa10872bb63844686e016b8950b628, type: 2}
   leftHandWeaponIndex: 0
-  headEquipment: {fileID: 0}
+  headEquipment: {fileID: 11400000, guid: 1ecf065640e149d40aa504cd57d7985b, type: 2}
   bodyEquipment: {fileID: 0}
   legEquipment: {fileID: 0}
   handEquipment: {fileID: 0}
@@ -1998,6 +1998,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1220814009321150, guid: 3f581b8f5dacdc54b8e405d2157e1d8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235884364611672, guid: 3f581b8f5dacdc54b8e405d2157e1d8b, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
