@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 namespace SG
@@ -10,6 +11,12 @@ namespace SG
         [Header("Message Pop Up")]
         [SerializeField] TextMeshProUGUI popUpMessageText;
         [SerializeField] GameObject popUpMessageGameObject;
+
+        [Header("Item Pop Up")]
+        [SerializeField] GameObject itemPopUpGameObject;
+        [SerializeField] Image itemIcon;
+        [SerializeField] TextMeshProUGUI itemName;
+        [SerializeField] TextMeshProUGUI itemAmount;
 
         //  IF YOU PLAN ON MAKING ALL OF THESE POPUPS FUNCTION IDENTICALLY, YOU COULD JUST MAKE 1 POP UP GAMEOBJECT AND CHANGE THE TEXT VALUES AS NEEDED
         //  INSTEAD OF MAKING SEVERAL DIFFERENT GROUPS FOR POP UP FUNCTIONALITY
@@ -34,6 +41,7 @@ namespace SG
         public void CloseAllPopUpWindows()
         {
             popUpMessageGameObject.SetActive(false);
+            itemPopUpGameObject.SetActive(false);
 
             PlayerUIManager.instance.popUpWindowIsOpen = false;
         }
@@ -43,6 +51,22 @@ namespace SG
             PlayerUIManager.instance.popUpWindowIsOpen = true;
             popUpMessageText.text = messageText;
             popUpMessageGameObject.SetActive(true);
+        }
+
+        public void SendItemPopUp(Item item, int amount)
+        {
+            itemAmount.enabled = false;
+            itemIcon.sprite = item.itemIcon;
+            itemName.text = item.itemName;
+
+            if (amount > 0)
+            {
+                itemAmount.enabled = true;
+                itemAmount.text = "x" + amount.ToString();
+            }
+
+            itemPopUpGameObject.SetActive(true);
+            PlayerUIManager.instance.popUpWindowIsOpen = true;
         }
 
         public void SendYouDiedPopUp()
