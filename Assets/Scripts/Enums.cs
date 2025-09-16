@@ -52,6 +52,41 @@ public enum WeaponClass
     Fist
 }
 
+public enum EquipmentModelType
+{
+    FullHelmet,     // WOULD ALWAYS HIDE FACE, HAIR ECT
+    Hat,     // WOULD ALWAYS HIDE HAIR
+    Hood,           // WOULD ALWAYS HIDE HAIR
+    HelmetAcessorie,
+    FaceCover,
+    Torso,
+    Back,
+    RightShoulder,
+    RightUpperArm,
+    RightElbow,
+    RightLowerArm,
+    RightHand,
+    LeftShoulder,
+    LeftUpperArm,
+    LeftElbow,
+    LeftLowerArm,
+    LeftHand,
+    Hips,
+    HipsAttachment,
+    RightLeg,
+    RightKnee,
+    LeftLeg,
+    LeftKnee
+}
+
+public enum HeadEquipmentType
+{
+    FullHelmet, // HIDE ENTIRE HEAD + FEATURES
+    Hat,        // DOES NOT HIDE ANYTHING
+    Hood,       // HIDES HAIR
+    FaceCover   // HIDES BEARD
+}
+
 //  THIS IS USED TO CALCULATE DAMAGE BASED ON ATTACK TYPE
 public enum AttackType
 {

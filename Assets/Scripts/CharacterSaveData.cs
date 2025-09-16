@@ -14,6 +14,9 @@ namespace SG
         [Header("Character Name")]
         public string characterName = "Character";
 
+        [Header("Body Type")]
+        public bool isMale = true;
+
         [Header("Time Played")]
         public float secondsPlayed;
 
@@ -38,6 +41,23 @@ namespace SG
         [Header("Bosses")]
         public SerializableDictionary<int, bool> bossesAwakened;    //  THE INT IS THE BOSS I.D, THE BOOL IS THE AWAKENED STATUS
         public SerializableDictionary<int, bool> bossesDefeated;    //  THE INT IS THE BOSS I.D, THE BOOL IS THE DEFEATED STATUS
+
+        [Header("Equipment")]
+        public int headEquipment;
+        public int bodyEquipment;
+        public int legEquipment;
+        public int handEquipment;
+
+        public int rightWeaponIndex;
+        public int rightWeapon01;
+        public int rightWeapon02;
+        public int rightWeapon03;
+
+        public int leftWeaponIndex;
+        public int leftWeapon01;
+        public int leftWeapon02;
+        public int leftWeapon03;
+
 
         public CharacterSaveData()
         {

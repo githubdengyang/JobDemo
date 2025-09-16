@@ -22,6 +22,19 @@ namespace SG
         public float blockingHolyAbsorption;
         public float blockingStability;
 
+        [Header("Armor Absorption")]
+        public float armorPhysicalDamageAbsorption;
+        public float armorMagicDamageAbsorption;
+        public float armorFireDamageAbsorption;
+        public float armorHolyDamageAbsorption;
+        public float armorLightningDamageAbsorption;
+
+        [Header("Armor Resistances")]
+        public float armorImmunity;      // RESISTANCE TO ROT AND POISON
+        public float armorRobustness;    // RESISTANCE TO BLEED AND FROST
+        public float armorFocus;         // RESISTANCE TO MADNESS AND SLEEP
+        public float armorVitality;      // RESISTANCE TO DEATH CURSE
+
         [Header("Poise")]
         public float totalPoiseDamage;              // How much poise damage we have taken
         public float offensivePoiseBonus;           // The poise bonus gained from using weapons (heavy weapons have a much larger bonus)
