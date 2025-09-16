@@ -92,7 +92,6 @@ public class PrefabNodeCopier : EditorWindow
 				}
 			}
 		}
-		DestroyImmediate(temp);
 	}
 
 	void CopySelectedNodes()
