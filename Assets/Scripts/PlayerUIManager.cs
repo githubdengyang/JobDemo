@@ -14,6 +14,8 @@ namespace SG
 
         [HideInInspector] public PlayerUIHudManager playerUIHudManager;
         [HideInInspector] public PlayerUIPopUpManager playerUIPopUpManager;
+        [HideInInspector] public PlayerUICharacterMenuManager playerUICharacterMenuManager;
+        [HideInInspector] public PlayerUIEquipmentManager playerUIEquipmentManager;
 
         [Header("UI Flags")]
         public bool menuWindowIsOpen = false;       // INVENTORY SCREEN, EQUIPMENT MENU, BLACKSMITH MENU ECT
@@ -32,6 +34,8 @@ namespace SG
 
             playerUIHudManager = GetComponentInChildren<PlayerUIHudManager>();
             playerUIPopUpManager = GetComponentInChildren<PlayerUIPopUpManager>();
+            playerUICharacterMenuManager = GetComponentInChildren<PlayerUICharacterMenuManager>();
+            playerUIEquipmentManager = GetComponentInChildren<PlayerUIEquipmentManager>();
         }
 
         private void Start()
@@ -49,6 +53,12 @@ namespace SG
                 //  WE THEN RESTART, AS A CLIENT
                 NetworkManager.Singleton.StartClient();
             }
+        }
+
+        public void CloseAllMenuWindows()
+        {
+            playerUICharacterMenuManager.CloseCharacterMenu();
+            playerUIEquipmentManager.CloseEquipmentManagerMenu();
         }
     }
 }

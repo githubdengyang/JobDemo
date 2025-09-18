@@ -398,6 +398,24 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenCharacterMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""126bf3a2-9e2f-4d4a-b6b9-cdc78e82a252"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""X"",
+                    ""type"": ""Button"",
+                    ""id"": ""8ae57630-6040-4957-a11b-d4798f659050"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -598,6 +616,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""TwoHandLeftWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68b10494-5d2f-48f9-8099-c4ca6cea056e"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenCharacterMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f328863-a3b0-4972-a608-ae56b8263749"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""X"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -669,6 +709,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_PlayerActions_TwoHandWeapon = m_PlayerActions.FindAction("TwoHandWeapon", throwIfNotFound: true);
         m_PlayerActions_TwoHandRightWeapon = m_PlayerActions.FindAction("TwoHandRightWeapon", throwIfNotFound: true);
         m_PlayerActions_TwoHandLeftWeapon = m_PlayerActions.FindAction("TwoHandLeftWeapon", throwIfNotFound: true);
+        m_PlayerActions_OpenCharacterMenu = m_PlayerActions.FindAction("OpenCharacterMenu", throwIfNotFound: true);
+        m_PlayerActions_X = m_PlayerActions.FindAction("X", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_X = m_UI.FindAction("X", throwIfNotFound: true);
@@ -815,6 +857,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_TwoHandWeapon;
     private readonly InputAction m_PlayerActions_TwoHandRightWeapon;
     private readonly InputAction m_PlayerActions_TwoHandLeftWeapon;
+    private readonly InputAction m_PlayerActions_OpenCharacterMenu;
+    private readonly InputAction m_PlayerActions_X;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -837,6 +881,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @TwoHandWeapon => m_Wrapper.m_PlayerActions_TwoHandWeapon;
         public InputAction @TwoHandRightWeapon => m_Wrapper.m_PlayerActions_TwoHandRightWeapon;
         public InputAction @TwoHandLeftWeapon => m_Wrapper.m_PlayerActions_TwoHandLeftWeapon;
+        public InputAction @OpenCharacterMenu => m_Wrapper.m_PlayerActions_OpenCharacterMenu;
+        public InputAction @X => m_Wrapper.m_PlayerActions_X;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -900,6 +946,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @TwoHandLeftWeapon.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnTwoHandLeftWeapon;
                 @TwoHandLeftWeapon.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnTwoHandLeftWeapon;
                 @TwoHandLeftWeapon.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnTwoHandLeftWeapon;
+                @OpenCharacterMenu.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnOpenCharacterMenu;
+                @OpenCharacterMenu.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnOpenCharacterMenu;
+                @OpenCharacterMenu.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnOpenCharacterMenu;
+                @X.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnX;
+                @X.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnX;
+                @X.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnX;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -958,6 +1010,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @TwoHandLeftWeapon.started += instance.OnTwoHandLeftWeapon;
                 @TwoHandLeftWeapon.performed += instance.OnTwoHandLeftWeapon;
                 @TwoHandLeftWeapon.canceled += instance.OnTwoHandLeftWeapon;
+                @OpenCharacterMenu.started += instance.OnOpenCharacterMenu;
+                @OpenCharacterMenu.performed += instance.OnOpenCharacterMenu;
+                @OpenCharacterMenu.canceled += instance.OnOpenCharacterMenu;
+                @X.started += instance.OnX;
+                @X.performed += instance.OnX;
+                @X.canceled += instance.OnX;
             }
         }
     }
@@ -1023,6 +1081,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnTwoHandWeapon(InputAction.CallbackContext context);
         void OnTwoHandRightWeapon(InputAction.CallbackContext context);
         void OnTwoHandLeftWeapon(InputAction.CallbackContext context);
+        void OnOpenCharacterMenu(InputAction.CallbackContext context);
+        void OnX(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

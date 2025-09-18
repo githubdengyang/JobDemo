@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e42f801760828e6499de98cf177a0373, type: 3}
-  m_Name: Melee Weapon Item
+  m_Name: Spear Weapon Item
   m_EditorClassIdentifier: 
   itemName: 
-  itemIcon: {fileID: 21300124, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
+  itemIcon: {fileID: 21300116, guid: 09e4c6a7d75923945afe43953ef58ad2, type: 3}
   itemDescription: 
   itemID: 1
   itemWeight: 0
   weaponAnimator: {fileID: 22100000, guid: 56d2c36ad49b6ee4290a322c32d4ebcf, type: 2}
   weaponModelType: 0
-  weaponModel: {fileID: 4718178142049903673, guid: 0ccd2b0af1c163d4591fc4aee2fe6f0b, type: 3}
+  weaponModel: {fileID: 4718178142049903673, guid: 0b024f288cf9bbe44b3f0006ba653d94, type: 3}
   weaponClass: 0
   strengthREQ: 10
   dexREQ: 10

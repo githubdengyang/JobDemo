@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Unarmed Weapon Item
   m_EditorClassIdentifier: 
   itemName: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300020, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
   itemDescription: 
   itemID: 0
+  itemWeight: 0
   weaponAnimator: {fileID: 22100000, guid: 56d2c36ad49b6ee4290a322c32d4ebcf, type: 2}
   weaponModelType: 0
   weaponModel: {fileID: 4718178142049903673, guid: da397a24be744e04d8655d1c11ba3ce2, type: 3}
+  weaponClass: 0
   strengthREQ: 10
   dexREQ: 10
   intREQ: 0
