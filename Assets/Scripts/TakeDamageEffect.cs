@@ -57,6 +57,8 @@ namespace SG
             PlayDamageSFX(character);
             PlayDamageVFX(character);
 
+            //  RUN THIS AFTER ALL OTHER FUNCTIONS THAT WOULD ATTEMPT TO PLAY AN ANIMATION UPON BEING DAMAGED & AFTER POISE/STANCE DAMAGE IS CALCULATED
+            CalculateStanceDamage(character);
             //  IF CHARACTER IS A.I, CHECK FOR NEW TARGET IF CHARACTER CAUSING DAMAGE IS PRESENT
         }
 
@@ -87,6 +89,9 @@ namespace SG
             //  WE SUBJECT POISE DAMAGE FROM THE CHARACTERS TOTAL
             character.characterStatsManager.totalPoiseDamage -= poiseDamage;
 
+            //  WE STORE THE PREVIOUS POISE DAMAGE TAKEN FOR OTHER INTERACTIONS
+            character.characterCombatManager.previousPoiseDamageTaken = poiseDamage;
+
             float remainingPoise = character.characterStatsManager.basePoiseDefense +
                 character.characterStatsManager.offensivePoiseBonus +
                 character.characterStatsManager.totalPoiseDamage;
@@ -96,6 +101,19 @@ namespace SG
 
             //  SINCE THE CHARACTER HAS BEEN HIT, WE RESET THE POISE TIMER
             character.characterStatsManager.poiseResetTimer = character.characterStatsManager.defaultPoiseResetTime;
+        }
+
+        private void CalculateStanceDamage(CharacterManager character)
+        {
+            AICharacterManager aiCharacter = character as AICharacterManager;
+
+            //  YOU CAN OPTIONALLY GIVE WEAPONS THEIR OWN STANCE DAMAGE VALUES, OR USE POISE DAMAGE
+            int stanceDamage = Mathf.RoundToInt(poiseDamage);
+
+            if (aiCharacter != null)
+            {
+                aiCharacter.aiCharacterCombatManager.DamageStance(stanceDamage);
+            }
         }
 
         private void PlayDamageVFX(CharacterManager character)
@@ -172,7 +190,6 @@ namespace SG
             }
 
             character.characterAnimatorManager.lastDamageAnimationPlayed = damageAnimation;
-            Debug.LogFormat($"[damageAnimation]{damageAnimation}");
 
             if (poiseIsBroken)
             {

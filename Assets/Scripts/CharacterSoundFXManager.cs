@@ -57,6 +57,11 @@ namespace SG
                 PlaySoundFX(WorldSoundFXManager.instance.ChooseRandomSFXFromArray(footSteps));
         }
 
+        public virtual void PlayStanceBreakSoundFX()
+        {
+            audioSource.PlayOneShot(WorldSoundFXManager.instance.stanceBreakSFX);
+        }
+
         public virtual void PlayBlockSoundFX()
         {
 

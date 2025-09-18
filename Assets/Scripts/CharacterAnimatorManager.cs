@@ -189,6 +189,27 @@ namespace SG
             character.characterNetworkManager.NotifyTheServerOfActionAnimationServerRpc(NetworkManager.Singleton.LocalClientId, targetAnimation, applyRootMotion);
         }
 
+        public virtual void PlayTargetActionAnimationInstantly(
+            string targetAnimation,
+            bool isPerformingAction,
+            bool applyRootMotion = true,
+            bool canRotate = false,
+            bool canMove = false)
+        {
+            this.applyRootMotion = applyRootMotion;
+            character.animator.Play(targetAnimation);
+            //  CAN BE USED TO STOP CHARACTER FROM ATTEMPTING NEW ACTIONS
+            //  FOR EXAMPLE, IF YOU GET DAMAGED, AND BEGIN PERFORMING A DAMAGE ANIMATION
+            //  THIS FLAG WILL TURN TRUE IF YOU ARE STUNNED
+            //  WE CAN THEN CHECK FOR THIS BEFORE ATTEMPTING NEW ACTIONS
+            character.isPerformingAction = isPerformingAction;
+            character.characterLocomotionManager.canRotate = canRotate;
+            character.characterLocomotionManager.canMove = canMove;
+
+            //  TELL THE SERVER/HOST WE PLAYED AN ANIMATION, AND TO PLAY THAT ANIMATION FOR EVERYBODY ELSE PRESENT
+            character.characterNetworkManager.NotifyTheServerOfInstantActionAnimationServerRpc(NetworkManager.Singleton.LocalClientId, targetAnimation, applyRootMotion);
+        }
+
         public virtual void PlayTargetAttackActionAnimation(
             WeaponItem weapon,
             AttackType attackType,
