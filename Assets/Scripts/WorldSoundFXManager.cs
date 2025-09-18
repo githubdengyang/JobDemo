@@ -19,6 +19,7 @@ namespace SG
         public AudioClip pickUpItemSFX;
         public AudioClip rollSFX;
         public AudioClip stanceBreakSFX;
+        public AudioClip criticalStrikeSFX;
 
         private void Awake()
         {

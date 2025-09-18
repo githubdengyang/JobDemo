@@ -34,6 +34,71 @@ namespace SG
             }
         }
 
+        //  CRITICAL ATTACKS
+        public override void AttemptRiposte(RaycastHit hit)
+        {
+            CharacterManager targetCharacter = hit.transform.gameObject.GetComponent<CharacterManager>();
+
+            //  IF FOR SOME REASON THE TARGET CHARACTER IS NULL, RETURN
+            if (targetCharacter == null)
+                return;
+
+            //  IF SOME HOW SINCE THE INITIAL CHECK THE CHARACTER CAN NO LONGER BE RIPOSTED, RETURN
+            if (!targetCharacter.characterNetworkManager.isRipostable.Value)
+                return;
+
+            //  IF SOMEBODY ELSE IS ALREADY PERFORMING A CRITICAL STRIKE ON THE CHARACTER (OR WE ALREADY ARE), RETURN
+            if (targetCharacter.characterNetworkManager.isBeingCriticallyDamaged.Value)
+                return;
+
+            //  YOU CAN ONLY RIPOSTE WITH A MELEE WEAPON ITEM
+            MeleeWeaponItem riposteWeapon;
+            MeleeWeaponDamageCollider riposteCollider;
+
+            //  TODO: CHECK IF WE ARE TWO HANDING LEFT WEAPON OR RIGHT WEAPON (THIS WILL CHANGE THE RIPOSTE WEAPON)
+
+            riposteWeapon = player.playerInventoryManager.currentRightHandWeapon as MeleeWeaponItem;
+            riposteCollider = player.playerEquipmentManager.rightWeaponManager.meleeDamageCollider;
+
+            //  THE RIPSOTE ANIMATION WILL CHANGE DEPENDING ON THE WEAPON'S ANIMATOR CONTROLLER, SO THE ANIMATION CAN BE CHOOSEN THERE, THE NAME WILL ALWAYS BE THE SAME
+            character.characterAnimatorManager.PlayTargetActionAnimationInstantly("Riposte_01", true);
+
+            //  WHILST PERFORMING A CRITICAL STRIKE, YOU CANNOT BE DAMAGED
+            if (character.IsOwner)
+                character.characterNetworkManager.isInvulnerable.Value = true;
+
+            // 1. CREATE A NEW DAMAGE EFFECT FOR THIS TYPE OF DAMAGE
+            TakeCriticalDamageEffect damageEffect = Instantiate(WorldCharacterEffectsManager.instance.takeCriticalDamageEffect);
+
+            // 2. APPLY ALL OF THE DAMAGE STATS FROM THE COLLIDER TO THE DAMAGE EFFECT
+            damageEffect.physicalDamage = riposteCollider.physicalDamage;
+            damageEffect.holyDamage = riposteCollider.holyDamage;
+            damageEffect.fireDamage = riposteCollider.fireDamage;
+            damageEffect.lightningDamage = riposteCollider.lightningDamage;
+            damageEffect.magicDamage = riposteCollider.magicDamage;
+            damageEffect.poiseDamage = riposteCollider.poiseDamage;
+
+            // 3. MULTIPLY DAMAGE BY WEAPONS RIPOSTE MODIFIER
+            damageEffect.physicalDamage *= riposteWeapon.riposte_Attack_01_Modifier;
+            damageEffect.holyDamage *= riposteWeapon.riposte_Attack_01_Modifier;
+            damageEffect.fireDamage *= riposteWeapon.riposte_Attack_01_Modifier;
+            damageEffect.lightningDamage *= riposteWeapon.riposte_Attack_01_Modifier;
+            damageEffect.magicDamage *= riposteWeapon.riposte_Attack_01_Modifier;
+            damageEffect.poiseDamage *= riposteWeapon.riposte_Attack_01_Modifier;
+
+            // 4. USING A SERVER RPC SEND THE RIPOSTE TO THE TARGET, WHERE THEY WILL PLAY THE PROPER ANIMATIONS ON THEIR END, AND TAKE THE DAMAGE
+            targetCharacter.characterNetworkManager.NotifyTheServerOfRiposteServerRpc(
+                targetCharacter.NetworkObjectId,
+                character.NetworkObjectId,
+                "Riposted_01",
+                riposteWeapon.itemID,
+                damageEffect.physicalDamage,
+                damageEffect.magicDamage,
+                damageEffect.fireDamage,
+                damageEffect.holyDamage,
+                damageEffect.poiseDamage);
+        }
+
         public virtual void DrainStaminaBasedOnAttack()
         {
             if (!player.IsOwner)

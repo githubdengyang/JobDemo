@@ -72,6 +72,8 @@ namespace SG
                 return;
             }
 
+            playerPerformingAction.characterCombatManager.AttemptCriticalAttack();
+
             PerformLightAttack(playerPerformingAction, weaponPerformingAction);
         }
 

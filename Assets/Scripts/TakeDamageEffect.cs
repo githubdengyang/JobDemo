@@ -18,7 +18,7 @@ namespace SG
         public float holyDamage = 0;
 
         [Header("Final Damage")]
-        private int finalDamageDealt = 0;         // FINAL DAMAGE TAKEN AFTER ALL CALCULATIONS HAVE BEEN MADE
+        protected int finalDamageDealt = 0;         // FINAL DAMAGE TAKEN AFTER ALL CALCULATIONS HAVE BEEN MADE
 
         [Header("Poise")]
         public float poiseDamage = 0;
@@ -62,7 +62,7 @@ namespace SG
             //  IF CHARACTER IS A.I, CHECK FOR NEW TARGET IF CHARACTER CAUSING DAMAGE IS PRESENT
         }
 
-        private void CalculateDamage(CharacterManager character)
+        protected virtual void CalculateDamage(CharacterManager character)
         {
             if (!character.IsOwner)
                 return;
@@ -103,7 +103,7 @@ namespace SG
             character.characterStatsManager.poiseResetTimer = character.characterStatsManager.defaultPoiseResetTime;
         }
 
-        private void CalculateStanceDamage(CharacterManager character)
+        protected void CalculateStanceDamage(CharacterManager character)
         {
             AICharacterManager aiCharacter = character as AICharacterManager;
 
@@ -116,7 +116,7 @@ namespace SG
             }
         }
 
-        private void PlayDamageVFX(CharacterManager character)
+        protected void PlayDamageVFX(CharacterManager character)
         {
             //  IF WE HAVE FIRE DAMAGE, PLAY FIRE PARTICLES
             //  LIGHTNING DAMAGE, LIGHTNING PARTICLES ECT
@@ -124,7 +124,7 @@ namespace SG
             character.characterEffectsManager.PlayBloodSplatterVFX(contactPoint);
         }
 
-        private void PlayDamageSFX(CharacterManager character)
+        protected void PlayDamageSFX(CharacterManager character)
         {
             AudioClip physicalDamageSFX = WorldSoundFXManager.instance.ChooseRandomSFXFromArray(WorldSoundFXManager.instance.physicalDamageSFX);
 
@@ -134,7 +134,7 @@ namespace SG
             //  IF LIGHTNING DAMAGE IS GREATER THAN 0, PLAY ZAP SFX
         }
 
-        private void PlayDirectionalBasedDamageAnimation(CharacterManager character)
+        protected void PlayDirectionalBasedDamageAnimation(CharacterManager character)
         {
             if (!character.IsOwner)
                 return;

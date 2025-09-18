@@ -19,8 +19,8 @@ namespace SG
         [HideInInspector] public GameObject leftHandWeaponModel;
 
         [Header("Weapon Managers")]
-        WeaponManager rightWeaponManager;
-        WeaponManager leftWeaponManager;
+        public WeaponManager rightWeaponManager;
+        public WeaponManager leftWeaponManager;
 
         [Header("DEBUG DELETE LATER")]
         [SerializeField] bool equipNewItems = false;
