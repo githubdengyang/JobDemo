@@ -13,6 +13,7 @@ namespace SG
         [HideInInspector] public AICharacterNetworkManager aiCharacterNetworkManager;
         [HideInInspector] public AICharacterCombatManager aiCharacterCombatManager;
         [HideInInspector] public AICharacterLocomotionManager aiCharacterLocomotionManager;
+        [HideInInspector] public AICharacterInventoryManager aiCharacterInventoryManager;
 
         [Header("Navmesh Agent")]
         public NavMeshAgent navMeshAgent;
@@ -33,6 +34,7 @@ namespace SG
             aiCharacterNetworkManager = GetComponent<AICharacterNetworkManager>();
             aiCharacterCombatManager = GetComponent<AICharacterCombatManager>();
             aiCharacterLocomotionManager = GetComponent<AICharacterLocomotionManager>();
+            aiCharacterInventoryManager = GetComponent<AICharacterInventoryManager>();
 
             navMeshAgent = GetComponentInChildren<NavMeshAgent>();
         }

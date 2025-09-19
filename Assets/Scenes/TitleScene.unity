@@ -1407,6 +1407,10 @@ PrefabInstance:
       value: WorldItemDatabase
       objectReference: {fileID: 0}
     - target: {fileID: 8903572973511397692, guid: 381c5248d973cb649997296a94e94dd7, type: 3}
+      propertyPath: pickUpItemPrefab
+      value: 
+      objectReference: {fileID: 3067906457146934721, guid: e48366025048371458b8b47d0ef69c2d, type: 3}
+    - target: {fileID: 8903572973511397692, guid: 381c5248d973cb649997296a94e94dd7, type: 3}
       propertyPath: weapons.Array.size
       value: 4
       objectReference: {fileID: 0}
