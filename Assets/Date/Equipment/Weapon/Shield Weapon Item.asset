@@ -16,9 +16,11 @@ MonoBehaviour:
   itemIcon: {fileID: 21300134, guid: 09e4c6a7d75923945afe43953ef58ad2, type: 3}
   itemDescription: 
   itemID: 2
+  itemWeight: 0
   weaponAnimator: {fileID: 22100000, guid: e345967bc87954541a34d1cd548b2e7a, type: 2}
   weaponModelType: 1
   weaponModel: {fileID: 4718178142049903673, guid: 43b0469f11222544fbbd13f6d1d13db5, type: 3}
+  weaponClass: 2
   strengthREQ: 10
   dexREQ: 10
   intREQ: 0
@@ -54,7 +56,10 @@ MonoBehaviour:
   oh_RB_Action: {fileID: 0}
   oh_RT_Action: {fileID: 0}
   oh_LB_Action: {fileID: 11400000, guid: 66e92c9df249f5c4a81ea4f7dcd7b002, type: 2}
+  ashOfWarAction: {fileID: 11400000, guid: 304b0a6170e11a94c9fbb36a40d37e35, type: 2}
   whooshes:
   - {fileID: 8300000, guid: 1c3bb45981235e84098bee98ec8c80ed, type: 3}
   blocking:
   - {fileID: 8300000, guid: 794be7c4bd9e64c9bbb9776937807a9e, type: 3}
+  riposte_Attack_01_Modifier: 3.3
+  backstab_Attack_01_Modifier: 3.3

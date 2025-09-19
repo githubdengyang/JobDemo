@@ -251,5 +251,14 @@ namespace SG
             player.playerCombatManager.canComboWithMainHandWeapon = false;
             //player.playerCombatManager.canComboWithOffHandWeapon = false;
         }
+
+        public WeaponItem SelectWeaponToPerformAshOfWar()
+        {
+            //  TO DO SELECT WEAPON DEPENDING ON SETUP
+            WeaponItem selectedWeapon = player.playerInventoryManager.currentLeftHandWeapon;
+            player.playerNetworkManager.SetCharacterActionHand(false);
+            player.playerNetworkManager.currentWeaponBeingUsed.Value = selectedWeapon.itemID;
+            return selectedWeapon;
+        }
     }
 }

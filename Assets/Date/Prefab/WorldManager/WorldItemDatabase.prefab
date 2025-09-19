@@ -57,3 +57,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0fe6a1fe81953284b97ffd7604620faf, type: 2}
   handEquipment:
   - {fileID: 11400000, guid: dcfc5988e1fb6b04eb094f1e7ba2f1a4, type: 2}
+  ashesOfWar:
+  - {fileID: 11400000, guid: 304b0a6170e11a94c9fbb36a40d37e35, type: 2}

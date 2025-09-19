@@ -26,6 +26,9 @@ namespace SG
         [Header("Hand Equipment")]
         [SerializeField] List<HandEquipmentItem> handEquipment = new List<HandEquipmentItem>();
 
+        [Header("Ashes Of War")]
+        [SerializeField] List<AshOfWar> ashesOfWar = new List<AshOfWar>();
+
         //  A LIST OF EVERY ITEM WE HAVE IN THE GAME
         [Header("Items")]
         private List<Item> items = new List<Item>();
@@ -67,6 +70,11 @@ namespace SG
                 items.Add(item);
             }
 
+            foreach (var item in ashesOfWar)
+            {
+                items.Add(item);
+            }
+
             //  ASSIGN ALL OF OUR ITEMS A UNIQUE ITEM ID
             for (int i = 0; i < items.Count; i++)
             {
@@ -97,6 +105,11 @@ namespace SG
         public HandEquipmentItem GetHandEquipmentByID(int ID)
         {
             return handEquipment.FirstOrDefault(equipment => equipment.itemID == ID);
+        }
+
+        public AshOfWar GetAshOfWarByID(int ID)
+        {
+            return ashesOfWar.FirstOrDefault(item => item.itemID == ID);
         }
     }
 }

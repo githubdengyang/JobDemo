@@ -69,7 +69,7 @@ namespace SG
         public WeaponItemAction oh_RB_Action;   // ONE HAND RIGHT BUMPER ACTION
         public WeaponItemAction oh_RT_Action;   // ONE HAND RIGHT TRIGGER ACTION
         public WeaponItemAction oh_LB_Action;   // ONE HAND LEFT BUMPER ACTION
-        //  ASH OF WAR
+        public AshOfWar ashOfWarAction;
 
         [Header("SFX")]
         public AudioClip[] whooshes;
