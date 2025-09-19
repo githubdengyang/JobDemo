@@ -9,6 +9,7 @@ namespace SG
     {
         [Header("Attack")]
         [SerializeField] private string attackAnimation;
+        [SerializeField] bool isParryable = true;
 
         [Header("Combo Action")]
         public AICharacterAttackAction comboAction; // The combo action of this attack action
@@ -30,6 +31,7 @@ namespace SG
 
             //  DOES YOUR A.I USE SIMPLE ATTACKS THAT ARE PURELY ANIMATION BASED (NOT EQUIPMENT / ITEM BASED) IF SO USE THIS
             aiCharacter.characterAnimatorManager.PlayTargetActionAnimation(attackAnimation, true);
+            aiCharacter.aiCharacterNetworkManager.isParryable.Value = isParryable;
         }
     }
 }

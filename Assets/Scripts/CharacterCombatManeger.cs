@@ -137,7 +137,6 @@ namespace SG
             if (character.IsOwner)
                 character.characterNetworkManager.currentHealth.Value -= pendingCriticalDamage;
         }
-
         
         public IEnumerator ForceMoveEnemyCharacterToRipsotePosition(CharacterManager enemyCharacter, Vector3 ripostePosition)
         {
@@ -199,6 +198,18 @@ namespace SG
                 character.characterNetworkManager.isInvulnerable.Value = false;
         }
 
+        public void EnableIsParrying()
+        {
+            if (character.IsOwner)
+                character.characterNetworkManager.isParrying.Value = true;
+        }
+
+        public void DisableIsParrying()
+        {
+            if (character.IsOwner)
+                character.characterNetworkManager.isParrying.Value = false;
+        }
+
         public void EnableIsRipostable()
         {
             if (character.IsOwner)
@@ -231,6 +242,11 @@ namespace SG
         }
 
         public virtual void DisableCanDoCombo()
+        {
+
+        }
+
+        public virtual void CloseAllDamageColliders()
         {
 
         }

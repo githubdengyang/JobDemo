@@ -41,12 +41,14 @@ namespace SG {
             {
                 contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
 
-                //  CHECK IF WE CAN DAMAGE THIS TARGET BASED ON FRIENDLY FIRE
-
                 //  CHECK IF TARGET IS BLOCKING
                 CheckForBlock(damageTarget);
 
-                DamageTarget(damageTarget);
+                //  CHECK IF TARGET IS PARRYING
+                CheckForParry(damageTarget);
+
+                if (!damageTarget.characterNetworkManager.isInvulnerable.Value)
+                    DamageTarget(damageTarget);
             }
         }
 
@@ -78,6 +80,11 @@ namespace SG {
                 // 3. APPLY BLOCKED CHARACTER DAMAGE TO TARGET
                 damageTarget.characterEffectsManager.ProcessInstantEffect(damageEffect);
             }
+        }
+
+        protected virtual void CheckForParry(CharacterManager damageTarget)
+        {
+
         }
 
         protected virtual void GetBlockingDotValues(CharacterManager damageTarget)

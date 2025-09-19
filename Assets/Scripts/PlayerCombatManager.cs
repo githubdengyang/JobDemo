@@ -34,6 +34,14 @@ namespace SG
             }
         }
 
+        public override void CloseAllDamageColliders()
+        {
+            base.CloseAllDamageColliders();
+
+            player.playerEquipmentManager.rightWeaponManager.meleeDamageCollider.DisableDamageCollider();
+            player.playerEquipmentManager.leftWeaponManager.meleeDamageCollider.DisableDamageCollider();
+        }
+
         //  CRITICAL ATTACKS
         public override void AttemptRiposte(RaycastHit hit)
         {

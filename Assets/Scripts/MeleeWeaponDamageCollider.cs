@@ -38,18 +38,43 @@ namespace SG
 
             if (damageTarget != null)
             {
+                contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
+
                 //  WE DO NOT WANT TO DAMAGE OURSELVES
                 if (damageTarget == characterCausingDamage)
                     return;
 
-                contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
-
                 //  CHECK IF WE CAN DAMAGE THIS TARGET BASED ON FRIENDLY FIRE
+                if (!WorldUtilityManager.Instance.CanIDamageThisTarget(characterCausingDamage.characterGroup, damageTarget.characterGroup))
+                    return;
+
+                //  CHECK IF TARGET IS PARRYING
+                CheckForParry(damageTarget);
 
                 //  CHECK IF TARGET IS BLOCKING
+                CheckForBlock(damageTarget);
 
+                if (!damageTarget.characterNetworkManager.isInvulnerable.Value)
+                    DamageTarget(damageTarget);
+            }
+        }
 
-                DamageTarget(damageTarget);
+        protected override void CheckForParry(CharacterManager damageTarget)
+        {
+            if (charactersDamaged.Contains(damageTarget))
+                return;
+
+            if (!characterCausingDamage.characterNetworkManager.isParryable.Value)
+                return;
+
+            if (!damageTarget.IsOwner)
+                return;
+
+            if (damageTarget.characterNetworkManager.isParrying.Value)
+            {
+                charactersDamaged.Add(damageTarget);
+                damageTarget.characterNetworkManager.NotifyServerOfParryServerRpc(characterCausingDamage.NetworkObjectId);
+                damageTarget.characterAnimatorManager.PlayTargetActionAnimationInstantly("Parry_Land_01", true);
             }
         }
 

@@ -33,6 +33,7 @@ namespace SG
                 character.characterNetworkManager.isAttacking.Value = false;
                 character.characterNetworkManager.isRipostable.Value = false;
                 character.characterNetworkManager.isBeingCriticallyDamaged.Value = false;
+                character.characterNetworkManager.isParrying.Value = false;
             }
         }
 
