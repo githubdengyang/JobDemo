@@ -269,7 +269,7 @@ namespace SG
             damagedCharacter.characterEffectsManager.ProcessInstantEffect(damageEffect);
         }
 
-        //  CRITICAL ATTACK
+        //  CRITICAL ATTACK (RIPSOTE)
         [ServerRpc(RequireOwnership = false)]
         public void NotifyTheServerOfRiposteServerRpc(
             ulong damagedCharacterID,
@@ -351,6 +351,90 @@ namespace SG
             // MOVE THE ENEMY TO THE PROPER RIPOSTE POSITION
             StartCoroutine(damagedCharacter.characterCombatManager.ForceMoveEnemyCharacterToRipsotePosition
                 (characterCausingDamage, WorldUtilityManager.Instance.GetRipostingPositionBasedOnWeaponClass(weapon.weaponClass)));
+        }
+
+        //  CRITICAL ATTACK (BACKSTAB)
+        [ServerRpc(RequireOwnership = false)]
+        public void NotifyTheServerOfBackstabServerRpc(
+            ulong damagedCharacterID,
+            ulong characterCausingDamageID,
+            string criticalDamageAnimation,
+            int weaponID,
+            float physicalDamage,
+            float magicDamage,
+            float fireDamage,
+            float holyDamage,
+            float poiseDamage)
+        {
+            if (IsServer)
+            {
+                NotifyTheServerOfBackstabClientRpc(
+                    damagedCharacterID,
+                    characterCausingDamageID,
+                    criticalDamageAnimation,
+                    weaponID,
+                    physicalDamage,
+                    magicDamage,
+                    fireDamage, holyDamage,
+                    poiseDamage);
+            }
+        }
+
+        [ClientRpc]
+        public void NotifyTheServerOfBackstabClientRpc(
+            ulong damagedCharacterID,
+            ulong characterCausingDamageID,
+            string criticalDamageAnimation,
+            int weaponID,
+            float physicalDamage,
+            float magicDamage,
+            float fireDamage,
+            float holyDamage,
+            float poiseDamage)
+        {
+            ProcessBackstabFromServer(damagedCharacterID,
+                characterCausingDamageID,
+                criticalDamageAnimation,
+                weaponID,
+                physicalDamage,
+                magicDamage,
+                fireDamage,
+                holyDamage,
+                poiseDamage);
+        }
+
+        public void ProcessBackstabFromServer(
+            ulong damagedCharacterID,
+            ulong characterCausingDamageID,
+            string criticalDamageAnimation,
+            int weaponID,
+            float physicalDamage,
+            float magicDamage,
+            float fireDamage,
+            float holyDamage,
+            float poiseDamage)
+        {
+            CharacterManager damagedCharacter = NetworkManager.Singleton.SpawnManager.SpawnedObjects[damagedCharacterID].gameObject.GetComponent<CharacterManager>();
+            CharacterManager characterCausingDamage = NetworkManager.Singleton.SpawnManager.SpawnedObjects[characterCausingDamageID].gameObject.GetComponent<CharacterManager>();
+            WeaponItem weapon = WorldItemDatabase.Instance.GetWeaponByID(weaponID);
+            TakeCriticalDamageEffect damageEffect = Instantiate(WorldCharacterEffectsManager.instance.takeCriticalDamageEffect);
+
+            if (damagedCharacter.IsOwner)
+                damagedCharacter.characterNetworkManager.isBeingCriticallyDamaged.Value = true;
+
+            damageEffect.physicalDamage = physicalDamage;
+            damageEffect.magicDamage = magicDamage;
+            damageEffect.fireDamage = fireDamage;
+            damageEffect.holyDamage = holyDamage;
+            damageEffect.poiseDamage = poiseDamage;
+            damageEffect.characterCausingDamage = characterCausingDamage;
+
+            damagedCharacter.characterEffectsManager.ProcessInstantEffect(damageEffect);
+            damagedCharacter.characterAnimatorManager.PlayTargetActionAnimationInstantly(criticalDamageAnimation, true);
+
+            // MOVE THE BACKSTAB TARGET TO THE POSITION OF THE BACK STABBER
+            StartCoroutine(characterCausingDamage.characterCombatManager.ForceMoveEnemyCharacterToBackstabPosition
+                (damagedCharacter, WorldUtilityManager.Instance.GetBackstabPositionBasedOnWeaponClass(weapon.weaponClass)));
         }
     }
 }
